@@ -72,6 +72,7 @@ You can download the resource pack here: https://steamcommunity.com/sharedfiles/
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/ReqParam_ParamBonus_RU.md">ReqParam и ParamBonus</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Dodge_RU.md">Механика уклонения (Рывок)</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Items_RU.md">Предметы</a></li>
+  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Hotkeys_RU.md">Горячие клавишы</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/ResourcePack_RU.md">Ресурс пак</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Other_RU.md">Прочее</a></li>
 </ol>
@@ -86,6 +87,7 @@ You can download the resource pack here: https://steamcommunity.com/sharedfiles/
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/ReqParam_ParamBonus_EN.md">ReqParam and ParamBonus</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Dodge_EN.md">Dodge Mechanic (Dash)</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Items_EN.md">Items</a></li>
+  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Hotkeys_EN.md">Hotkeys</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/ResourcePack_EN.md">Resource Pack</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Other_EN.md">Other</a></li>
 </ol>
