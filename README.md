@@ -5,7 +5,7 @@
 
 ---
 
-### General Information (Общая Информация)
+### General information (Общая информация)
 
 <details>
 <summary>🇬🇧 English</summary>
@@ -52,5 +52,22 @@ You can download the resource pack here: #####
 Для активации всех изменений, особенно связанных с заменой аудио, текстур требуется установить ресурс пак и поставить ему найвысший приоритет в настройках tmodloader!
 
 Ресурс пак можно скачать по ссылке: #####
+
+</details>
+
+---
+
+### Detailed description of the parts of the mod (Подробное описание частей мода)
+
+<details>
+
+<summary>🇷🇺 Русский</summary>
+<ol>
+  <li><a href="https://github.com/rzc0d3r/DarkSouls/edit/main/wiki/Stats_RU.md">Характеристики персонажа</a></li>
+  <li><a href="https://github.com/rzc0d3r/DarkSouls/edit/main/wiki/ReqParam_ParamBonus_RU.md">ReqParam и ParamBonus</a></li>
+  <li><a href="https://github.com/rzc0d3r/DarkSouls/edit/main/wiki/Dodge_RU.md">Механика уклонений (Рывок)</a></li>
+  <li><a href="https://github.com/rzc0d3r/DarkSouls/edit/main/wiki/ResourcePack_RU.md">Ресурс пак</a></li>
+  <li><a href="https://github.com/rzc0d3r/DarkSouls/edit/main/wiki/Other_RU.md">Прочее</a></li>
+</ol>
 
 </details>
