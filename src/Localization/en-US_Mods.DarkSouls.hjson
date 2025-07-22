@@ -1,0 +1,10 @@
+"Keybinds.Toggle Dark Souls Stats UI.DisplayName": Open / close window with player stats
+
+Items: {
+	DarkSoulsBonfire: {
+		DisplayName: Dark Souls Bonfire
+		Tooltip: Right-click near the bonfire to open the level-up menu
+	}
+}
+
+ResourceDisplaySets.CustomResourceBars.DisplayName: Dark Souls

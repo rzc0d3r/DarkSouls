@@ -1,0 +1,10 @@
+"Keybinds.Toggle Dark Souls Stats UI.DisplayName": Открыть / закрыть окно с характеристиками персонажа
+
+Items: {
+	DarkSoulsBonfire: {
+		DisplayName: Костёр (Dark Souls)
+		Tooltip: Щелкните правой кнопкой мыши рядом с костром, чтобы открыть окно повышения уровня игрока
+	}
+}
+
+ResourceDisplaySets.CustomResourceBars.DisplayName: Dark Souls
