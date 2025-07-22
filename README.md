@@ -15,18 +15,18 @@
 <details>
 <summary>🇬🇧 English</summary>
 
-<strong>Main Features and Changes</strong>  
+<strong>Main Features and Changes</strong>
 1. Character stat leveling system: Vitality, Attunement, Endurance, Strength, Dexterity, Resistance, Intelligence, Faith  
-2. Stat-based scaling system for all weapons and tools (ParamBonus)  
-3. Every weapon or tool requires specific stat values to be used (ReqParam)  
-4. The iconic death screen: <b>YOU DIED</b>  
+2. Scaling system (ParamBonus) for all weapons and tools based on character stats  
+3. Every weapon and tool requires specific stat values to be usable (ReqParam)  
+4. Legendary death screen: <b>YOU DIED</b>  
 5. Replaced interface sounds and player damage sounds (for both male and female characters)  
-6. Terraria’s loading logo replaced with the FromSoftware logo  
-7. New health and mana bar style, which also adds a stamina bar  
-8. Max health and mana are increased by leveling Vitality and Attunement — Life Crystals and Mana Crystals cannot be used!  
-9. All types of dashes have been replaced with a built-in dodge roll that grants invincibility frames, which can be increased (similar to Adaptability in Dark Souls 2)  
-10. To improve stats, you need to spend souls, which are earned by defeating hostile mobs  
-11. Full multiplayer support — all players receive souls when a boss is defeated  
+6. All Terraria loading screen variants are replaced with the FromSoftware logo  
+7. Added a new style for the health and mana bars, which also includes a new stamina bar  
+8. Maximum health and mana can now be increased only by leveling Vitality and Attunement — Life Crystals and Mana Crystals cannot be used!  
+9. All types of dash abilities have been replaced with a built-in dash that grants invincibility frames, which can be improved (similar to Adaptability from Dark Souls 2)  
+10. To upgrade stats, you must spend souls earned by defeating hostile mobs  
+11. Full multiplayer support: souls from boss kills are granted to all clients
 
 <strong>⚠ Attention ⚠</strong>  
 
@@ -45,7 +45,7 @@ You can download the resource pack here: #####
 3. Каждое оружие или инструмент требует конкретные значения характеристик при которых этот предмет можно начать использовать (ReqParam)
 4. Легендарный экран смерти: <b>YOU DIED</b>
 5. Заменены звуки интерфейса, получения урона игроком (для обоих полов)
-6. Экран загрузки Terraria заменен на логотип From Software 
+6. Все варианты загрузочного экрана Terraria теперь будут логотипом From Software
 7. Добавлен новый стиль полоски здоровья и манны, который также добавляет еще одну полоску выносливости
 8. Повышение максимального здоровья и манны осуществляется путем прокачки Жизненной силы и Учености. Сердца жизни и кристаллы маны невозможно использовать!
 9. Все разновидность рывка были заменены на встроенную возможность игроком делать рывок с кадрами неуязвимости, которые можно увеличивать (аналог адаптивности из Dark Souls 2)
@@ -74,6 +74,20 @@ You can download the resource pack here: #####
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Items_RU.md">Предметы</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/ResourcePack_RU.md">Ресурс пак</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Other_RU.md">Прочее</a></li>
+</ol>
+
+</details>
+
+<details>
+
+<summary>🇬🇧 English</summary>
+<ol>
+  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Stats_EN.md">Player Stats</a></li>
+  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/ReqParam_ParamBonus_EN.md">ReqParam and ParamBonus</a></li>
+  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Dodge_EN.md">Dodge Mechanic (Dash)</a></li>
+  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Items_EN.md">Items</a></li>
+  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/ResourcePack_EN.md">Resource Pack</a></li>
+  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Other_EN.md">Other</a></li>
 </ol>
 
 </details>
