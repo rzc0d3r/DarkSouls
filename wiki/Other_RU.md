@@ -10,5 +10,6 @@
 
 ![](https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/images/DeathScreen.jpg)
 
+8. В главное меню игры добавлен тема меню **Dark Souls Style**, при выборе этой темы будет воспроизведен звук загрузки меню Dark Souls, а также на фоне будет играть композиция **A Moment's Peace**:
 
-
+![](https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/images/MenuTheme.jpg)
