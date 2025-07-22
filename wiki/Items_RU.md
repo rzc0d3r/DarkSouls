@@ -1,18 +1,18 @@
-# Подробнее о предметах
+# More About Items
 
 <details>
-<summary><strong>Размещаемые предметы</strong></summary>
+<summary><strong>Placeable Items</strong></summary>
 
 <pre>
-1. Костёр (Dark Souls)
-   Описание: Щелкните правой кнопкой мыши рядом с костром, чтобы открыть окно повышения уровня игрока.
-   Рецепт 1:
-       Костёр (стандартный) × 1
-       Железный меч × 1
-   Рецепт 2:
-       Костёр (стандартный) × 1
-       Стальной меч × 1
-   Рабочее место: не требуется
+1. Bonfire (Dark Souls)
+   Description: Right-click near the bonfire to open the level-up menu.
+   Recipe 1:
+       Campfire (standard) × 1
+       Iron Sword × 1
+   Recipe 2:
+       Campfire (standard) × 1
+       Steel Sword × 1
+   Crafting Station: Not required
 </pre>
 
 </details>
