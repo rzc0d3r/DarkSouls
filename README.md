@@ -32,7 +32,7 @@
 
 To activate all changes — especially those related to audio and textures — you must install the resource pack and set it to the highest priority in tModLoader settings!
 
-You can download the resource pack here: #####
+You can download the resource pack here: https://steamcommunity.com/sharedfiles/filedetails/?id=3531989903
 
 </details>
 
@@ -56,7 +56,7 @@ You can download the resource pack here: #####
 
 Для активации всех изменений, особенно связанных с заменой аудио, текстур требуется установить ресурс пак и поставить ему найвысший приоритет в настройках tmodloader!
 
-Ресурс пак можно скачать по ссылке: #####
+Ресурс пак можно скачать по ссылке: https://steamcommunity.com/sharedfiles/filedetails/?id=3531989903
 
 </details>
 
