@@ -65,7 +65,7 @@ You can download the resource pack here: #####
 <ol>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Stats_RU.md">Характеристики персонажа</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/ReqParam_ParamBonus_RU.md">ReqParam и ParamBonus</a></li>
-  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Dodge_RU.md">Механика уклонений (Рывок)</a></li>
+  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Dodge_RU.md">Механика уклонения (Рывок)</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/ResourcePack_RU.md">Ресурс пак</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Other_RU.md">Прочее</a></li>
 </ol>
