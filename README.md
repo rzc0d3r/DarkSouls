@@ -1,7 +1,12 @@
-# Dark Souls
-🇬🇧 Content and mechanics from the Dark Souls trilogy of games for Terraria
+<div align="center">
 
-🇷🇺 Контент и механики из трилогии игр Dark Souls для Terraria
+# Dark Souls  
+🇬🇧 Content and mechanics from the Dark Souls trilogy of games for Terraria  
+🇷🇺 Контент и механики из трилогии игр Dark Souls для Terraria  
+
+<img src="https://github.com/rzc0d3r/DarkSouls/blob/main/icon_workshop.png" alt="Icon" style="max-width: 100%;"/>
+
+</div>
 
 ---
 
