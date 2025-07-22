@@ -2,7 +2,7 @@
 
 To activate all changes, you must install the resource pack and set it to the **highest priority** in the tModLoader settings!
 
-Resource Pack link: ####
+Resource Pack link: https://steamcommunity.com/sharedfiles/filedetails/?id=3531989903
 
 ---
 
