@@ -34,11 +34,11 @@
 
 #### Пример когда нужные уровни характеристик НЕ БЫЛИ получены
 
-![](https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/images/ReqParam_Error.jpg)
+![](https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/images/ReqParam_Error_RU.jpg)
 
 #### Пример когда нужные уровни характеристик БЫЛИ получены
 
-![](https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/images/ReqParam_OK.jpg)
+![](https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/images/ReqParam_OK_RU.jpg)
 
 Дополнительный урон складывается из сумы всех отдельных бонусов по следующим характеристикам: Сила, Ловкость, Интеллект, Вера
 
