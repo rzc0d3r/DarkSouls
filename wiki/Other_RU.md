@@ -8,7 +8,7 @@
 6. При убийстве враждебного существа вы получаете души с характерным звуком из Dark Souls
 7. При смерти персонажа на весь экран выводится окно похожее на экрана смерти Dark Souls (звук экрана смерти также сюда входит):
 
-![](https://github.com/rzc0d3r/DarkSouls/blobl/main/wiki/images/DeathScreen.jpg)
+![](https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/images/DeathScreen.jpg)
 
 
 
