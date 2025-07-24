@@ -1,6 +1,6 @@
 # Details About Other Changes
 
-1. Life and Mana Crystals cannot be used.  
+1. Life Crystals, Mana Crystals, and Life Fruits cannot be used.
 2. All types of dashes granted by accessories and armor have been disabled.  
 3. When the character takes damage, one of 10 different Dark Souls damage sounds may play.  
 4. When a male character dies, one of 2 different Dark Souls death sounds may play:  
