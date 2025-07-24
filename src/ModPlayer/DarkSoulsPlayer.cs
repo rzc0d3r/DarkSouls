@@ -14,6 +14,8 @@ using ReLogic.Utilities;
 using Microsoft.Xna.Framework;
 
 using DarkSouls.UI;
+using Terraria.ID;
+using System.Collections.Specialized;
 
 
 namespace DarkSouls
@@ -150,7 +152,7 @@ namespace DarkSouls
                 dsSouls = tag.GetInt("dsSouls");
             if (tag.ContainsKey("dsVitality"))
                 dsVitality = tag.GetInt("dsVitality");
-            if (tag.ContainsKey("dsВ"))
+            if (tag.ContainsKey("dsAttunement"))
                 dsAttunement = tag.GetInt("dsAttunement");
             if (tag.ContainsKey("dsEndurance"))
                 dsEndurance = tag.GetInt("dsEndurance");
@@ -332,11 +334,23 @@ namespace DarkSouls
 
         public override void ModifyMaxStats(out StatModifier health, out StatModifier mana)
         {
+            // simulation of the use of health and mana crystals, for the correct behavior conditions various events
+            int totalHealthBonus = GetHPByVitality(dsVitality);
+            int consumedLifeCrystals = Math.Clamp(totalHealthBonus / 20, 0, Player.LifeCrystalMax);
+            int healthBonus = totalHealthBonus - consumedLifeCrystals * 20;
+
+            int totalManaBonus = GetManaByAttunement(dsAttunement);
+            int consumedManaCrystals = Math.Clamp(totalManaBonus / 20, 0, Player.ManaCrystalMax);
+            int manaBonus = totalManaBonus - consumedManaCrystals * 20;
+
+            Player.ConsumedLifeCrystals = consumedLifeCrystals;
+            Player.ConsumedManaCrystals = consumedManaCrystals;
+
             health = StatModifier.Default;
-            health.Base = GetHPByVitality(dsVitality);
+            health.Base = healthBonus;
 
             mana = StatModifier.Default;
-            mana.Base = GetManaByAttunement(dsAttunement);
+            mana.Base = manaBonus;
         }
 
         public static int GetHPByVitality(int vitality)
