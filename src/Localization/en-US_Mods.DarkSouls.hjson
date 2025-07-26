@@ -8,3 +8,46 @@ Items: {
 }
 
 ResourceDisplaySets.CustomResourceBars.DisplayName: Dark Souls
+
+Configs: {
+	ServerConfig: {
+		DisplayName: Server and single-player config
+
+		SoulsGainMultiplierPercent: {
+			Label: Souls Gain Multiplier (in percent)
+			Tooltip:
+				'''
+				Sets the amount of souls gained from killing enemies.
+				100% is the default value.
+				Range: 0% - 500%
+				'''
+		}
+
+		LevelUpCostMultiplierPercent: {
+			Label: Level Up Cost Multiplier (in percent)
+			Tooltip:
+				'''
+				Adjusts the cost required to level up.
+				100% is the default value.
+				Range: 0% - 500%
+				'''
+		}
+
+		DisableVanillaDashLock: {
+			Label: Disable Vanilla Dash Lock
+			Tooltip:
+				'''
+				If enabled, this mod will stop blocking all types of dashes present in vanilla Terraria.
+				Examples of affected items: Shield of Cthulhu, Tabi, Master Ninja Gear, Solar Flare set, Crystal Assassin set.
+				All items that use vanilla dash-related variables will also remain unblocked.
+				This can be useful if dashes from other mods have stopped working.  
+				However, enabling this option may cause modded dashes to overlap with each other, which can lead to unpredictable behavior.
+				'''
+		}
+
+		Headers: {
+			Balance: Balance
+			Compatibility: Compatibility
+		}
+	}
+}

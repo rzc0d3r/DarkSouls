@@ -11,6 +11,7 @@ using ReLogic.Content;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 
 namespace DarkSouls.UI
 {
@@ -18,6 +19,8 @@ namespace DarkSouls.UI
     public class DarkSoulsStatsUI : UIState
     {
         public bool openedFromBonfire = false;
+
+        private Stack<int> levelUPCosts = new Stack<int>();
 
         private UIPanel mainPanel;
 
@@ -393,13 +396,18 @@ namespace DarkSouls.UI
             if (statValueIncreased)
             {
                 SoundEngine.PlaySound(DarkSouls.dsInferfaceClickSound);
+
                 int levelIntValue = Int32.Parse(levelValue.Text);
+                int reqSouls = Int32.Parse(reqSoulsValue.Text);
+
                 levelValue.SetText((levelIntValue + 1).ToString());
                 levelValue.TextColor = Color.DodgerBlue;
-                soulsValue.SetText((Int32.Parse(soulsValue.Text) - Int32.Parse(reqSoulsValue.Text)).ToString());
+                soulsValue.SetText((Int32.Parse(soulsValue.Text) - reqSouls).ToString());
 
                 acceptButton.SetImage(acceptButtonActiveTexture);
                 acceptButtonIsActive = true;
+
+                levelUPCosts.Push(reqSouls);
             }
             else
                 SoundEngine.PlaySound(DarkSouls.dsInferfaceReturnSound);
@@ -451,13 +459,15 @@ namespace DarkSouls.UI
             if (statValueDecreased)
             {
                 SoundEngine.PlaySound(DarkSouls.dsInferfaceClickSound);
+
                 if (levelIntValue - 1 == dsPlayer.PlayerLevel)
                 {
                     levelValue.TextColor = Color.White;
                     acceptButton.SetImage(acceptButtonInactiveTexture);
                     acceptButtonIsActive = false;
                 }
-                soulsValue.SetText((Int32.Parse(soulsValue.Text) + DarkSoulsPlayer.GetReqSoulsByLevel(Int32.Parse(levelValue.Text))).ToString());
+                
+                soulsValue.SetText((Int32.Parse(soulsValue.Text) + levelUPCosts.Pop()).ToString());
                 levelValue.SetText((levelIntValue - 1).ToString());
             }
             else
@@ -470,6 +480,7 @@ namespace DarkSouls.UI
             acceptButton.SetImage(acceptButtonInactiveTexture);
             acceptButtonIsActive = false;
             updateSoulsValue = true;
+            levelUPCosts.Clear();
         }
 
         protected override void DrawSelf(SpriteBatch spriteBatch)
@@ -482,12 +493,14 @@ namespace DarkSouls.UI
         private bool IncreaseStatValue(UIText statValueUIText)
         {
             int statValue = Int32.Parse(statValueUIText.Text);
+            int reqSouls = Int32.Parse(reqSoulsValue.Text);
 
-            if (Int32.Parse(soulsValue.Text) - Int32.Parse(reqSoulsValue.Text) < 0 || statValue + 1 > 99)
+            if (Int32.Parse(soulsValue.Text) - reqSouls < 0 || statValue + 1 > 99)
                 return false;
 
             statValueUIText.SetText((statValue + 1).ToString());
             statValueUIText.TextColor = Color.DodgerBlue;
+
             return true;
         }
 

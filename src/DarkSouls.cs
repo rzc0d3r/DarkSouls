@@ -1,12 +1,12 @@
-using System.IO;
-using System.Collections.Generic;
-
-using Terraria;
-using Terraria.Audio;
-using Terraria.ModLoader;
-
 using ReLogic.Content;
 using ReLogic.Graphics;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace DarkSouls
 {
@@ -40,7 +40,8 @@ namespace DarkSouls
 
         public enum NetMessageTypes : byte
         {
-            GetSouls
+            GetSouls,
+            SyncVitality
         }
 
         public override void Load()
@@ -113,11 +114,28 @@ namespace DarkSouls
         public override void HandlePacket(BinaryReader reader, int whoAmI)
         {
             NetMessageTypes messageType = (NetMessageTypes)reader.ReadByte();
-            if (messageType == NetMessageTypes.GetSouls)
+            switch (messageType)
             {
-                int souls = reader.ReadInt32();
-                DarkSoulsPlayer dsPlayer = Main.LocalPlayer.GetModPlayer<DarkSoulsPlayer>();
-                dsPlayer.AddSouls(souls);
+                case NetMessageTypes.GetSouls:
+                    int souls = reader.ReadInt32();
+                    Main.LocalPlayer.GetModPlayer<DarkSoulsPlayer>().AddSouls(souls);
+                    break;
+                case NetMessageTypes.SyncVitality:
+                    byte playerID = reader.ReadByte();
+                    int newVitalityValue = reader.ReadInt32();
+
+                    Player player = Main.player[playerID];
+                    player.GetModPlayer<DarkSoulsPlayer>().dsVitality = newVitalityValue;
+
+                    if (Main.netMode == NetmodeID.Server)
+                    {
+                        ModPacket packet = GetPacket();
+                        packet.Write((byte)NetMessageTypes.SyncVitality);
+                        packet.Write(playerID);
+                        packet.Write(newVitalityValue);
+                        packet.Send(-1, whoAmI);
+                    }
+                    break;
             }
         }
 

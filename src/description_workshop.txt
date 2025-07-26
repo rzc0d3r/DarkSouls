@@ -1,5 +1,7 @@
 - - - General information - - -
 
+Wiki: https://github.com/rzc0d3r/DarkSouls
+
 Main Features and Changes:
 1. Character stat leveling system: Vitality, Attunement, Endurance, Strength, Dexterity, Resistance, Intelligence, Faith  
 2. Scaling system (ParamBonus) for all weapons and tools based on character stats  
@@ -12,6 +14,7 @@ Main Features and Changes:
 9. All types of dash abilities have been replaced with a built-in dash that grants invincibility frames, which can be improved (similar to Adaptability from Dark Souls 2)  
 10. To upgrade stats, you must spend souls earned by defeating hostile mobs  
 11. Full multiplayer support: souls from boss kills are granted to all clients
+12. Ability to customize the mod through the settings menu
 
 ! Attention !
 
@@ -19,7 +22,13 @@ To activate all changes — especially those related to audio and textures — y
 
 You can download the resource pack here: https://steamcommunity.com/sharedfiles/filedetails/?id=3531989903
 
+[quote=rzc0d3r]
+Source code and full mod wiki: https://github.com/rzc0d3r/DarkSouls
+Discord channel: https://discord.gg/yX3VjHwu3B[/quote]
+
 - - - Общая информация - - -
+
+Вики: https://github.com/rzc0d3r/DarkSouls
 
 Основные нововведения и изменения:
 1. Система прокачки характеристик персонажа: Жизненная сила, ученость, выносливость, сила, ловкость, сопротивление, интеллект, вера
@@ -33,6 +42,7 @@ You can download the resource pack here: https://steamcommunity.com/sharedfiles/
 9. Все разновидность рывка были заменены на встроенную возможность игроком делать рывок с кадрами неуязвимости, которые можно увеличивать (аналог адаптивности из Dark Souls 2)
 10. Для улучшение характеристик нужно тратить души, которые можно получить за убийство враждебных мобов.
 11. Мод полностью совместим с мультиплеером: души за убийство босса начисляются всем клиентам
+12. Возможность настроить мод под себя через меню настроек
 
 ! Внимание !
 
@@ -40,3 +50,6 @@ You can download the resource pack here: https://steamcommunity.com/sharedfiles/
 
 Ресурс пак можно скачать по ссылке: https://steamcommunity.com/sharedfiles/filedetails/?id=3531989903
 
+[quote=rzc0d3r]
+Исходный код и полная вики по моду: https://github.com/rzc0d3r/DarkSouls
+Мой discord канал: https://discord.gg/yX3VjHwu3B[/quote]

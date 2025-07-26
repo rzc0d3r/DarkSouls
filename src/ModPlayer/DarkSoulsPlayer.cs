@@ -1,21 +1,18 @@
-﻿using System;
-using System.Linq;
+﻿using DarkSouls.Config;
+using DarkSouls.UI;
+using Microsoft.Xna.Framework;
+using ReLogic.Utilities;
+using System;
 using System.Collections.Generic;
-
+using System.Collections.Specialized;
+using System.Linq;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameInput;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
-using Terraria.DataStructures;
-
-using ReLogic.Utilities;
-
-using Microsoft.Xna.Framework;
-
-using DarkSouls.UI;
-using Terraria.ID;
-using System.Collections.Specialized;
 
 
 namespace DarkSouls
@@ -93,8 +90,11 @@ namespace DarkSouls
         public override void PreUpdate()
         {
             // disabling all dashes in Terraria
-            Player.dashDelay = 999;
-            Player.dashType = 0;
+            if (!ServerConfig.Instance.DisableVanillaDashLock)
+            {
+                Player.dashDelay = 999;
+                Player.dashType = 0;
+            }
         }
 
         public override void PreUpdateMovement()
@@ -193,6 +193,9 @@ namespace DarkSouls
 
         public override void PostUpdate()
         {
+            Player.ConsumedLifeCrystals = Math.Clamp(GetHPByVitality(dsVitality) / 20, 0, Player.LifeCrystalMax);
+            Player.ConsumedManaCrystals = Math.Clamp(GetManaByAttunement(dsAttunement) / 20, 0, Player.ManaCrystalMax);
+
             maxStamina = GetStaminaByEndurance(dsEndurance);
 
             if (pendingSouls > 0)
@@ -244,7 +247,6 @@ namespace DarkSouls
             if (currentStamina > maxStamina)
                 currentStamina = maxStamina;
         }
-
 
         public override void PostUpdateBuffs()
         {
@@ -330,6 +332,36 @@ namespace DarkSouls
             ModContent.GetInstance<DarkSoulsYouDiedUISystem>().ShowUI();
             SoundEngine.PlaySound(DarkSouls.dsThruDeath);
             currentStamina = maxStamina;
+        }
+
+        public override void SyncPlayer(int toWho, int fromWho, bool newPlayer)
+        {
+            ModPacket packet = Mod.GetPacket();
+
+            packet.Write((byte)DarkSouls.NetMessageTypes.SyncVitality);
+            packet.Write((byte)Player.whoAmI);
+            packet.Write(dsVitality);
+            packet.Send(toWho, fromWho);
+        }
+
+        public override void CopyClientState(ModPlayer targetCopy)
+        {
+            base.CopyClientState(targetCopy);
+            DarkSoulsPlayer dsPlayer = targetCopy as DarkSoulsPlayer;
+            dsPlayer.dsVitality = dsVitality;
+        }
+
+        public override void SendClientChanges(ModPlayer clientPlayer)
+        {
+            DarkSoulsPlayer dsPlayer = clientPlayer as DarkSoulsPlayer;
+            if (dsPlayer.dsVitality != dsVitality)
+            {
+                ModPacket packet = Mod.GetPacket();
+                packet.Write((byte)DarkSouls.NetMessageTypes.SyncVitality);
+                packet.Write((byte)Player.whoAmI);
+                packet.Write(dsVitality);
+                packet.Send();
+            }
         }
 
         public override void ModifyMaxStats(out StatModifier health, out StatModifier mana)
@@ -437,20 +469,30 @@ namespace DarkSouls
             return potential;
         }
 
+
         public static int GetReqSoulsByLevel(int level)
         {
-            if (level > 0 && level < 35) // 1 - 35
-                return (int)(500 * Math.Pow(1.025, level - 1)); // 2.5% increase per level
-            else if (level >= 35) // 35+
-                return (int)(0.02 * Math.Pow(level, 3) + 3.05 * Math.Pow(level, 2) + 90 * level - 6500);
-            else
-                return 0;
+            int multiplier = ServerConfig.Instance.LevelUpCostMultiplierPercent;
+            int reqSouls = 0;
+
+            if (level >= 35) // 35+
+                reqSouls = (int)(0.02 * Math.Pow(level, 3) + 3.05 * Math.Pow(level, 2) + 90 * level - 6500);
+            else if (level > 0 && level < 35) // 1 - 35
+                reqSouls = (int)(500 * Math.Pow(1.025, level - 1)); // 2.5% increase per level
+
+            reqSouls = (int)(reqSouls * multiplier / 100f);
+
+            return reqSouls;
         }
 
         public void AddSouls(int amount, bool render = true)
         {
             if (amount <= 0)
                 return;
+
+            int multiplier = ServerConfig.Instance.SoulsGainMultiplierPercent;
+            amount = (int)(amount * multiplier / 100f);
+
             dsSouls += amount;
             if (render)
             {

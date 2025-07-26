@@ -92,7 +92,7 @@ namespace DarkSouls.Items
 
         private static Dictionary<int, WeaponParams> allWeaponsParams = new()
         {
-            {ItemID.AbigailsFlower, new WeaponParams(0, 0, 2, 2) },
+            {ItemID.AbigailsFlower, new WeaponParams() },
 
             {ItemID.AdamantiteChainsaw, new WeaponParams(14, 10, 0, 0) },
             {ItemID.AdamantiteDrill, new WeaponParams(12, 12, 0, 0) },
@@ -289,7 +289,7 @@ namespace DarkSouls.Items
             {ItemID.DD2ExplosiveTrapT3Popper, new WeaponParams(0, 0, 8, 15, intelligenceScalingGrade: ScalingGrade.E, faithScalingGrade: ScalingGrade.C) },
             {ItemID.FalconBlade, new WeaponParams(8, 6, 0, 0, ScalingGrade.D, ScalingGrade.E) },
             {ItemID.FetidBaghnakhs, new WeaponParams(15, 10, 0, 0, ScalingGrade.C, ScalingGrade.D) },
-            {ItemID.BabyBirdStaff, new WeaponParams(1, 1, 0, 4, faithScalingGrade: ScalingGrade.E) },
+            {ItemID.BabyBirdStaff, new WeaponParams() },
             {ItemID.FireWhip, new WeaponParams(2, 3, 0, 15, faithScalingGrade: ScalingGrade.D) },
             {ItemID.Flairon, new WeaponParams(28, 4, 0, 0, ScalingGrade.B, ScalingGrade.E) },
             {ItemID.Flamarang, new WeaponParams(10, 10, 0, 0, ScalingGrade.D, ScalingGrade.D) },
@@ -381,7 +381,7 @@ namespace DarkSouls.Items
             {ItemID.LeadPickaxe, new WeaponParams() },
             {ItemID.LeadShortsword, new WeaponParams() },
             {ItemID.LeafBlower, new WeaponParams(1, 1, 30, 0, intelligenceScalingGrade: ScalingGrade.C) },
-            {ItemID.BlandWhip, new WeaponParams(1, 1, 0, 8, faithScalingGrade: ScalingGrade.D) },
+            {ItemID.BlandWhip, new WeaponParams(1, 1, 0, 3, faithScalingGrade: ScalingGrade.D) },
             {ItemID.SoulDrain, new WeaponParams(1, 1, 22, 0, intelligenceScalingGrade: ScalingGrade.C) },
             {ItemID.LightDisc, new WeaponParams(14, 14, 0, 0, ScalingGrade.C, ScalingGrade.C) },
             {ItemID.LightsBane, new WeaponParams(10, 2, 0, 0, ScalingGrade.D) },
@@ -635,7 +635,7 @@ namespace DarkSouls.Items
             {ItemID.Vilethorn, new WeaponParams(1, 1, 8, 0, intelligenceScalingGrade: ScalingGrade.E) },
             {ItemID.FieryGreatsword, new WeaponParams(12, 3, 0, 0, ScalingGrade.C, ScalingGrade.D) },
             {ItemID.WaffleIron, new WeaponParams(15, 10, 0, 0, ScalingGrade.S, ScalingGrade.D) },
-            {ItemID.WandofFrosting, new WeaponParams(1, 1, 7, 0, intelligenceScalingGrade: ScalingGrade.E) },
+            {ItemID.WandofFrosting, new WeaponParams() },
             {ItemID.WandofSparking, new WeaponParams(1, 1, 5, 0) },
             {ItemID.WarAxeoftheNight, new WeaponParams(10, 2, 0, 0, ScalingGrade.E) },
             {ItemID.WaspGun, new WeaponParams(2, 2, 28, 0, intelligenceScalingGrade: ScalingGrade.C) },
