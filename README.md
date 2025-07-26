@@ -17,17 +17,18 @@
 
 <strong>Main Features and Changes</strong>
 1. Character stat leveling system: Vitality, Attunement, Endurance, Strength, Dexterity, Resistance, Intelligence, Faith  
-2. Scaling system (ParamBonus) for all weapons and tools based on character stats  
-3. Every weapon and tool requires specific stat values to be usable (ReqParam)  
-4. Legendary death screen: <b>YOU DIED</b>  
+2. Scaling system (ParamBonus) for all weapons and tools (vanilla Terraria) based on character stats  
+3. Every weapon and tool (vanilla Terraria) requires specific stat values to be usable (ReqParam)  
+4. Legendary death screen: YOU DIED
 5. Replaced interface sounds and player damage sounds (for both male and female characters)  
-6. All Terraria loading screen variants are replaced with the FromSoftware logo  
-7. Added a new style for the health and mana bars, which also includes a new stamina bar  
+6. All Terraria loading screen variants are replaced with the FromSoftware logo
+7. Added a new style for the health and mana bars, which also includes a new stamina bar
 8. Maximum health and mana can now be increased only by leveling Vitality and Attunement — Life Crystals and Mana Crystals cannot be used!  
 9. All types of dash abilities have been replaced with a built-in dash that grants invincibility frames, which can be improved (similar to Adaptability from Dark Souls 2)  
 10. To upgrade stats, you must spend souls earned by defeating hostile mobs  
 11. Multiplayer support
 12. Ability to customize the mod through the settings menu
+13. Accessories from the Dark Souls game series
 
 <strong>⚠ Attention ⚠</strong>  
 
@@ -42,9 +43,9 @@ You can download the resource pack here: https://steamcommunity.com/sharedfiles/
 
 <strong>Основные нововведения и изменения</strong>
 1. Система прокачки характеристик персонажа: Жизненная сила, ученость, выносливость, сила, ловкость, сопротивление, интеллект, вера
-2. Система скейлов от характеристик у всех оружий и инструментов (ParamBonus)
-3. Каждое оружие или инструмент требует конкретные значения характеристик при которых этот предмет можно начать использовать (ReqParam)
-4. Легендарный экран смерти: <b>YOU DIED</b>
+2. Система скейлов от характеристик у всех оружий и инструментов из ванильной Terraria (ParamBonus)
+3. Каждое оружие или инструмент из ванильной Terraria требует конкретные значения характеристик при которых этот предмет можно начать использовать (ReqParam)
+4. Легендарный экран смерти: YOU DIED
 5. Заменены звуки интерфейса, получения урона игроком (для обоих полов)
 6. Все варианты загрузочного экрана Terraria теперь будут логотипом From Software
 7. Добавлен новый стиль полоски здоровья и манны, который также добавляет еще одну полоску выносливости
@@ -53,6 +54,7 @@ You can download the resource pack here: https://steamcommunity.com/sharedfiles/
 10. Для улучшение характеристик нужно тратить души, которые можно получить за убийство враждебных мобов.
 11. Мод совместим с мультиплеером
 12. Возможность настроить мод под себя через меню настроек
+13. Аксессуары из серии игр Dark Souls
 
 <strong>⚠ Внимание ⚠</strong>
 
