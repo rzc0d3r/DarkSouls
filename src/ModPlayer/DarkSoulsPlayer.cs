@@ -1,16 +1,15 @@
 ﻿using DarkSouls.Config;
+using DarkSouls.Items.Accessories;
 using DarkSouls.UI;
 using Microsoft.Xna.Framework;
 using ReLogic.Utilities;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameInput;
-using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
@@ -74,6 +73,9 @@ namespace DarkSouls
         private const int dashDuration = 20;
         private const float dashVelocity = 10f;
 
+        // Accesories
+        public bool CloranthyRingEffect = false;
+
         public int PlayerLevel => dsVitality + dsAttunement + dsEndurance + dsStrength +
             dsDexterity + dsResistance + dsIntelligence + dsFaith;
 
@@ -85,6 +87,8 @@ namespace DarkSouls
                 dashDir = dashLeft;
             else
                 dashDir = 0;
+
+            CloranthyRingEffect = false;
         }
 
         public override void PreUpdate()
@@ -242,8 +246,11 @@ namespace DarkSouls
                 staminaRegenDelay--;
                 return;
             }
+            float newStaminaRegenRate = staminaRegenRate;
+            if (CloranthyRingEffect)
+                newStaminaRegenRate *= (1f + CloranthyRing.StaminaRegenRateBonus);
             if (currentStamina < maxStamina)
-                currentStamina += staminaRegenRate;
+                currentStamina += newStaminaRegenRate;
             if (currentStamina > maxStamina)
                 currentStamina = maxStamina;
         }
@@ -506,7 +513,10 @@ namespace DarkSouls
             if (currentStamina >= amount)
             {
                 currentStamina -= amount;
-                staminaRegenDelay = maxStaminaRegenDelay;
+                if (CloranthyRingEffect)
+                    staminaRegenDelay = (int)(maxStaminaRegenDelay * (1f - CloranthyRing.StaminaRegenDelayReductionBonus));
+                else
+                    staminaRegenDelay = maxStaminaRegenDelay;
                 usedStaminaRegenDelay = maxUsedStaminaRegenDelay;
                 return true;
             }

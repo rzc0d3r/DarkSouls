@@ -5,6 +5,16 @@ Items: {
 		DisplayName: Dark Souls Bonfire
 		Tooltip: Right-click near the bonfire to open the level-up menu
 	}
+
+	CloranthyRing: {
+		DisplayName: Cloranthy Ring
+		Tooltip:
+			'''
+			Increases stamina regeneration rate by {0}%
+			Reduces delay before stamina regeneration by {1}%
+			[c/929292:This ancient ring, engraved with a large green flower, is of unknown origin.]
+			'''
+	}
 }
 
 ResourceDisplaySets.CustomResourceBars.DisplayName: Dark Souls

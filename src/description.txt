@@ -4,8 +4,8 @@ Wiki: https://github.com/rzc0d3r/DarkSouls
 
 Main Features and Changes:
 1. Character stat leveling system: Vitality, Attunement, Endurance, Strength, Dexterity, Resistance, Intelligence, Faith  
-2. Scaling system (ParamBonus) for all weapons and tools based on character stats  
-3. Every weapon and tool requires specific stat values to be usable (ReqParam)  
+2. Scaling system (ParamBonus) for all weapons and tools (vanilla Terraria) based on character stats  
+3. Every weapon and tool (vanilla Terraria) requires specific stat values to be usable (ReqParam)  
 4. Legendary death screen: YOU DIED
 5. Replaced interface sounds and player damage sounds (for both male and female characters)  
 6. All Terraria loading screen variants are replaced with the FromSoftware logo
@@ -15,6 +15,7 @@ Main Features and Changes:
 10. To upgrade stats, you must spend souls earned by defeating hostile mobs  
 11. Multiplayer support
 12. Ability to customize the mod through the settings menu
+13. Accessories from the Dark Souls game series
 
 ! Attention !
 
@@ -31,8 +32,8 @@ Discord channel: https://discord.gg/yX3VjHwu3B
 
 Основные нововведения и изменения:
 1. Система прокачки характеристик персонажа: Жизненная сила, ученость, выносливость, сила, ловкость, сопротивление, интеллект, вера
-2. Система скейлов от характеристик у всех оружий и инструментов (ParamBonus)
-3. Каждое оружие или инструмент требует конкретные значения характеристик при которых этот предмет можно начать использовать (ReqParam)
+2. Система скейлов от характеристик у всех оружий и инструментов из ванильной Terraria (ParamBonus)
+3. Каждое оружие или инструмент из ванильной Terraria требует конкретные значения характеристик при которых этот предмет можно начать использовать (ReqParam)
 4. Легендарный экран смерти: YOU DIED
 5. Заменены звуки интерфейса, получения урона игроком (для обоих полов)
 6. Все варианты загрузочного экрана Terraria теперь будут логотипом From Software
@@ -42,6 +43,7 @@ Discord channel: https://discord.gg/yX3VjHwu3B
 10. Для улучшение характеристик нужно тратить души, которые можно получить за убийство враждебных мобов.
 11. Мод совместим с мультиплеером
 12. Возможность настроить мод под себя через меню настроек
+13. Аксессуары из серии игр Dark Souls
 
 ! Внимание !
 

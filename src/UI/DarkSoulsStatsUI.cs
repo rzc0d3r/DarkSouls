@@ -31,24 +31,44 @@ namespace DarkSouls.UI
         private UIImage luppIcon;
         private UIImage luppSeparator;
         private UIImage luppSeparator2;
+
         private UIImage nameField;
         private UIText playerName;
         private UIText covenantValue;
         private UIText levelValue;
         private UIText soulsValue;
         private UIText reqSoulsValue;
+
+        private UIText vitalityName;
         private UIText vitalityValue;
-        private UIText strengthValue;
-        private UIText resistanceValue;
+
+        private UIText intelligenceName;
         private UIText intelligenceValue;
-        private UIText humanityValue;
-        private UIText faithValue;
+
+        private UIText enduranceName;
         private UIText enduranceValue;
+
+        private UIText strengthName;
+        private UIText strengthValue;
+
+        private UIText dexterityName;
         private UIText dexterityValue;
+
+        private UIText resistanceName;
+        private UIText resistanceValue;
+
+        private UIText attunementName;
         private UIText attunementValue;
+
+        private UIText faithName;
+        private UIText faithValue;
+
+        private UIText humanityValue;
+
         private UIImage acceptButton;
 
         private UIPanel statPanel;
+
         private UIText hpValue;
         private UIText manaValue;
         private UIText defenseValue;
@@ -65,13 +85,13 @@ namespace DarkSouls.UI
         private Texture2D acceptButtonActiveTexture;
         private Texture2D acceptButtonInactiveTexture;
         private bool acceptButtonIsActive = false;
-        
+
         private float STAT_LEFT_PIXELS;
         private float CurrentTopPixels = 0;
 
         private bool updateSoulsValue = true;
 
-        private void CreateStatUIElement(ref UIText statValueUIElement, Texture2D iconTexture, string statName, string statValue, UIPanel srcPanel, UIElement prevUIElement)
+        private void CreateStatUIElement(ref UIText statNameUIElement, ref UIText statValueUIElement, Texture2D iconTexture, string statName, string statValue, UIPanel srcPanel, UIElement prevUIElement)
         {
             UIImage statIcon = new UIImage(iconTexture);
             statIcon.Left.Set(STAT_LEFT_PIXELS, 0f);
@@ -80,7 +100,7 @@ namespace DarkSouls.UI
 
             float textHeight = FontAssets.MouseText.Value.MeasureString(statName).Y;
 
-            UIText statNameUIElement = new UIText(statName);
+            statNameUIElement = new UIText(statName);
             statNameUIElement.Left.Set(STAT_LEFT_PIXELS + statIcon.Width.Pixels + 3f, 0f);
             statNameUIElement.Top.Set(statIcon.Top.Pixels - (float)Math.Floor((statIcon.Height.Pixels - textHeight) / 2.0f) + 1, 0f);
             srcPanel.Append(statNameUIElement);
@@ -92,6 +112,12 @@ namespace DarkSouls.UI
             srcPanel.Append(statValueUIElement);
 
             CurrentTopPixels += 5f + statIcon.Height.Pixels;
+        }
+
+        private void CreateStatUIElement(ref UIText statValueUIElement, Texture2D iconTexture, string statName, string statValue, UIPanel srcPanel, UIElement prevUIElement)
+        {
+            UIText statNameUIElement = default;
+            CreateStatUIElement(ref statNameUIElement, ref statValueUIElement, iconTexture, statName, statValue, srcPanel, prevUIElement); 
         }
 
         private void InitializeMainPanel()
@@ -182,7 +208,7 @@ namespace DarkSouls.UI
             separatorStats.Left.Set(STAT_LEFT_PIXELS, 0f);
             separatorStats.Top.Set(CurrentTopPixels + 5f, 0f);
             levelUPPanel.Append(separatorStats);
-                
+
             CurrentTopPixels += 5f;
 
             // - - - Stats - - -
@@ -202,28 +228,28 @@ namespace DarkSouls.UI
             CurrentTopPixels += 5f + separatorStats2.Height.Pixels;
 
             Texture2D vitalityTexture = ModContent.Request<Texture2D>("DarkSouls/UI/Textures/Vitality", AssetRequestMode.ImmediateLoad).Value;
-            CreateStatUIElement(ref vitalityValue, vitalityTexture, "Vitality", dsPlayer.dsVitality.ToString(), levelUPPanel, separatorStats2);
+            CreateStatUIElement(ref vitalityName, ref vitalityValue, vitalityTexture, "Vitality", dsPlayer.dsVitality.ToString(), levelUPPanel, separatorStats2);
 
             Texture2D attunementTexture = ModContent.Request<Texture2D>("DarkSouls/UI/Textures/Attunement", AssetRequestMode.ImmediateLoad).Value;
-            CreateStatUIElement(ref attunementValue, attunementTexture, "Attunement", dsPlayer.dsAttunement.ToString(), levelUPPanel, vitalityValue);
+            CreateStatUIElement(ref attunementName, ref attunementValue, attunementTexture, "Attunement", dsPlayer.dsAttunement.ToString(), levelUPPanel, vitalityValue);
 
             Texture2D enduranceTexture = ModContent.Request<Texture2D>("DarkSouls/UI/Textures/Endurance", AssetRequestMode.ImmediateLoad).Value;
-            CreateStatUIElement(ref enduranceValue, enduranceTexture, "Endurance", dsPlayer.dsEndurance.ToString(), levelUPPanel, attunementValue);
+            CreateStatUIElement(ref enduranceName, ref enduranceValue, enduranceTexture, "Endurance", dsPlayer.dsEndurance.ToString(), levelUPPanel, attunementValue);
 
             Texture2D strengthTexture = ModContent.Request<Texture2D>("DarkSouls/UI/Textures/Strength", AssetRequestMode.ImmediateLoad).Value;
-            CreateStatUIElement(ref strengthValue, strengthTexture, "Strength", dsPlayer.dsStrength.ToString(), levelUPPanel, enduranceValue);
+            CreateStatUIElement(ref strengthName, ref strengthValue, strengthTexture, "Strength", dsPlayer.dsStrength.ToString(), levelUPPanel, enduranceValue);
 
             Texture2D dexterityTexture = ModContent.Request<Texture2D>("DarkSouls/UI/Textures/Dexterity", AssetRequestMode.ImmediateLoad).Value;
-            CreateStatUIElement(ref dexterityValue, dexterityTexture, "Dexterity", dsPlayer.dsDexterity.ToString(), levelUPPanel, strengthValue);
+            CreateStatUIElement(ref dexterityName, ref dexterityValue, dexterityTexture, "Dexterity", dsPlayer.dsDexterity.ToString(), levelUPPanel, strengthValue);
 
             Texture2D resistanceTexture = ModContent.Request<Texture2D>("DarkSouls/UI/Textures/Resistance", AssetRequestMode.ImmediateLoad).Value;
-            CreateStatUIElement(ref resistanceValue, resistanceTexture, "Resistance", dsPlayer.dsResistance.ToString(), levelUPPanel, dexterityValue);
+            CreateStatUIElement(ref resistanceName, ref resistanceValue, resistanceTexture, "Resistance", dsPlayer.dsResistance.ToString(), levelUPPanel, dexterityValue);
 
             Texture2D intelligenceTexture = ModContent.Request<Texture2D>("DarkSouls/UI/Textures/Intelligence", AssetRequestMode.ImmediateLoad).Value;
-            CreateStatUIElement(ref intelligenceValue, intelligenceTexture, "Intelligence", dsPlayer.dsIntelligence.ToString(), levelUPPanel, resistanceValue);
+            CreateStatUIElement(ref intelligenceName, ref intelligenceValue, intelligenceTexture, "Intelligence", dsPlayer.dsIntelligence.ToString(), levelUPPanel, resistanceValue);
 
             Texture2D faithTexture = ModContent.Request<Texture2D>("DarkSouls/UI/Textures/Faith", AssetRequestMode.ImmediateLoad).Value;
-            CreateStatUIElement(ref faithValue, faithTexture, "Faith", dsPlayer.dsFaith.ToString(), levelUPPanel, intelligenceValue);
+            CreateStatUIElement(ref faithName, ref faithValue, faithTexture, "Faith", dsPlayer.dsFaith.ToString(), levelUPPanel, intelligenceValue);
 
             UIImage separatorStats3 = new(longSeparatorTexture);
             separatorStats3.Left.Set(STAT_LEFT_PIXELS, 0f);
@@ -376,21 +402,21 @@ namespace DarkSouls.UI
             int targetId = evt.Target.UniqueId;
             bool statValueIncreased = false;
 
-            if (targetId == dexterityValue.UniqueId)
+            if (targetId == dexterityValue.UniqueId || targetId == dexterityName.UniqueId)
                 statValueIncreased = IncreaseStatValue(dexterityValue);
-            else if (targetId == vitalityValue.UniqueId)
+            else if (targetId == vitalityValue.UniqueId || targetId == vitalityName.UniqueId)
                 statValueIncreased = IncreaseStatValue(vitalityValue);
-            else if (targetId == attunementValue.UniqueId)
+            else if (targetId == attunementValue.UniqueId || targetId == attunementName.UniqueId)
                 statValueIncreased = IncreaseStatValue(attunementValue);
-            else if (targetId == enduranceValue.UniqueId)
+            else if (targetId == enduranceValue.UniqueId || targetId == enduranceName.UniqueId)
                 statValueIncreased = IncreaseStatValue(enduranceValue);
-            else if (targetId == strengthValue.UniqueId)
+            else if (targetId == strengthValue.UniqueId || targetId == strengthName.UniqueId)
                 statValueIncreased = IncreaseStatValue(strengthValue);
-            else if (targetId == resistanceValue.UniqueId)
+            else if (targetId == resistanceValue.UniqueId || targetId == resistanceName.UniqueId)
                 statValueIncreased = IncreaseStatValue(resistanceValue);
-            else if (targetId == intelligenceValue.UniqueId)
+            else if (targetId == intelligenceValue.UniqueId || targetId == intelligenceName.UniqueId)
                 statValueIncreased = IncreaseStatValue(intelligenceValue);
-            else if (targetId == faithValue.UniqueId)
+            else if (targetId == faithValue.UniqueId || targetId == faithName.UniqueId)
                 statValueIncreased = IncreaseStatValue(faithValue);
 
             if (statValueIncreased)
@@ -438,21 +464,21 @@ namespace DarkSouls.UI
             int targetId = evt.Target.UniqueId;
             bool statValueDecreased = false;
 
-            if (targetId == dexterityValue.UniqueId)
+            if (targetId == dexterityValue.UniqueId || targetId == dexterityName.UniqueId)
                 statValueDecreased = DecreaseStatValue(dexterityValue, dsPlayer.dsDexterity);
-            else if (targetId == vitalityValue.UniqueId)
+            else if (targetId == vitalityValue.UniqueId || targetId == vitalityName.UniqueId)
                 statValueDecreased = DecreaseStatValue(vitalityValue, dsPlayer.dsVitality);
-            else if (targetId == attunementValue.UniqueId)
+            else if (targetId == attunementValue.UniqueId || targetId == attunementName.UniqueId)
                 statValueDecreased = DecreaseStatValue(attunementValue, dsPlayer.dsAttunement);
-            else if (targetId == enduranceValue.UniqueId)
+            else if (targetId == enduranceValue.UniqueId || targetId == enduranceName.UniqueId)
                 statValueDecreased = DecreaseStatValue(enduranceValue, dsPlayer.dsEndurance);
-            else if (targetId == strengthValue.UniqueId)
+            else if (targetId == strengthValue.UniqueId || targetId == strengthName.UniqueId)
                 statValueDecreased = DecreaseStatValue(strengthValue, dsPlayer.dsStrength);
-            else if (targetId == resistanceValue.UniqueId)
+            else if (targetId == resistanceValue.UniqueId || targetId == resistanceName.UniqueId)
                 statValueDecreased = DecreaseStatValue(resistanceValue, dsPlayer.dsResistance);
-            else if (targetId == intelligenceValue.UniqueId)
+            else if (targetId == intelligenceValue.UniqueId || targetId == intelligenceName.UniqueId)
                 statValueDecreased = DecreaseStatValue(intelligenceValue, dsPlayer.dsIntelligence);
-            else if (targetId == faithValue.UniqueId)
+            else if (targetId == faithValue.UniqueId || targetId == faithName.UniqueId)
                 statValueDecreased = DecreaseStatValue(faithValue, dsPlayer.dsFaith);
 
             int levelIntValue = Int32.Parse(levelValue.Text);
