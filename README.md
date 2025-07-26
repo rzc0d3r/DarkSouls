@@ -27,6 +27,7 @@
 9. All types of dash abilities have been replaced with a built-in dash that grants invincibility frames, which can be improved (similar to Adaptability from Dark Souls 2)  
 10. To upgrade stats, you must spend souls earned by defeating hostile mobs  
 11. Full multiplayer support: souls from boss kills are granted to all clients
+12. Ability to customize the mod through the settings menu
 
 <strong>⚠ Attention ⚠</strong>  
 
@@ -51,6 +52,7 @@ You can download the resource pack here: https://steamcommunity.com/sharedfiles/
 9. Все разновидность рывка были заменены на встроенную возможность игроком делать рывок с кадрами неуязвимости, которые можно увеличивать (аналог адаптивности из Dark Souls 2)
 10. Для улучшение характеристик нужно тратить души, которые можно получить за убийство враждебных мобов.
 11. Мод полностью совместим с мультиплеером: души за убийство босса начисляются всем клиентам
+12. Возможность настроить мод под себя через меню настроек
 
 <strong>⚠ Внимание ⚠</strong>
 
@@ -73,6 +75,7 @@ You can download the resource pack here: https://steamcommunity.com/sharedfiles/
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Dodge_RU.md">Механика уклонения (Рывок)</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Items_RU.md">Предметы</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Hotkeys_RU.md">Горячие клавишы</a></li>
+  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Config_RU.md">Настройки мода</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/ResourcePack_RU.md">Ресурс пак</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Other_RU.md">Прочее</a></li>
 </ol>
@@ -88,6 +91,7 @@ You can download the resource pack here: https://steamcommunity.com/sharedfiles/
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Dodge_EN.md">Dodge Mechanic (Dash)</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Items_EN.md">Items</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Hotkeys_EN.md">Hotkeys</a></li>
+  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Config_EN.md">Mod Config</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/ResourcePack_EN.md">Resource Pack</a></li>
   <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Other_EN.md">Other</a></li>
 </ol>
