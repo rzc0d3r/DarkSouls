@@ -16,3 +16,16 @@
 </pre>
 
 </details>
+
+<details>
+<summary><strong>Accessories</strong></summary>
+
+<pre>
+1. Cloranthy Ring
+   Description: Increases stamina regeneration rate by 25%
+                Reduces delay before stamina regeneration by 15%
+                This ancient ring, engraved with a large green flower, is of unknown origin.
+   Dropped by: Giant Tortoise (10%)
+</pre>
+
+</details>
