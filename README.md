@@ -26,7 +26,7 @@
 8. Maximum health and mana can now be increased only by leveling Vitality and Attunement — Life Crystals and Mana Crystals cannot be used!  
 9. All types of dash abilities have been replaced with a built-in dash that grants invincibility frames, which can be improved (similar to Adaptability from Dark Souls 2)  
 10. To upgrade stats, you must spend souls earned by defeating hostile mobs  
-11. Full multiplayer support: souls from boss kills are granted to all clients
+11. Multiplayer support
 12. Ability to customize the mod through the settings menu
 
 <strong>⚠ Attention ⚠</strong>  
@@ -51,7 +51,7 @@ You can download the resource pack here: https://steamcommunity.com/sharedfiles/
 8. Повышение максимального здоровья и манны осуществляется путем прокачки Жизненной силы и Учености. Сердца жизни и кристаллы маны невозможно использовать!
 9. Все разновидность рывка были заменены на встроенную возможность игроком делать рывок с кадрами неуязвимости, которые можно увеличивать (аналог адаптивности из Dark Souls 2)
 10. Для улучшение характеристик нужно тратить души, которые можно получить за убийство враждебных мобов.
-11. Мод полностью совместим с мультиплеером: души за убийство босса начисляются всем клиентам
+11. Мод совместим с мультиплеером
 12. Возможность настроить мод под себя через меню настроек
 
 <strong>⚠ Внимание ⚠</strong>
