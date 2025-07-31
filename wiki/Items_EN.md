@@ -8,10 +8,10 @@
    Description: Right-click near the bonfire to open the level-up menu.
    Recipe 1:
        Campfire (standard) × 1
-       Iron Sword × 1
+       Iron Broadsword × 1
    Recipe 2:
        Campfire (standard) × 1
-       Steel Sword × 1
+       Lead Broadsword × 1
    Crafting Station: Not required
 </pre>
 
