@@ -29,12 +29,11 @@
 11. Multiplayer support
 12. Ability to customize the mod through the settings menu
 13. Accessories from the Dark Souls game series
+14. Upon death, you lose all your souls and humanity. A bloodstain will appear at the place of death, which you can use to recover everything
 
 <strong>⚠ Attention ⚠</strong>  
 
-To activate all changes — especially those related to audio and textures — you must install the resource pack and set it to the highest priority in tModLoader settings!
-
-You can download the resource pack here: https://steamcommunity.com/sharedfiles/filedetails/?id=3531989903
+To activate all changes, you need to enable the resource pack and set it to the highest priority in the tModLoader settings!
 
 </details>
 
@@ -55,12 +54,11 @@ You can download the resource pack here: https://steamcommunity.com/sharedfiles/
 11. Мод совместим с мультиплеером
 12. Возможность настроить мод под себя через меню настроек
 13. Аксессуары из серии игр Dark Souls
+14. При смерти вы теряете все души и человечность, на месте смерти будет пятно крови, с помощью которого можно вернуть все назад
 
 <strong>⚠ Внимание ⚠</strong>
 
-Для активации всех изменений, особенно связанных с заменой аудио, текстур требуется установить ресурс пак и поставить ему найвысший приоритет в настройках tmodloader!
-
-Ресурс пак можно скачать по ссылке: https://steamcommunity.com/sharedfiles/filedetails/?id=3531989903
+Для активации всех изменений, требуется включить ресурс пак и поставить ему найвысший приоритет в настройках tModLoader!
 
 </details>
 
