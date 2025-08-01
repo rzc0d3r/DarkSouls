@@ -8,6 +8,48 @@
 		
 	</PropertyGroup>
 	<ItemGroup>
+	  <AdditionalFiles Remove="ResourcePack\Content\Music_\**" />
+	  <Compile Remove="ResourcePack\Content\Music_\**" />
+	  <EmbeddedResource Remove="ResourcePack\Content\Music_\**" />
+	  <None Remove="ResourcePack\Content\Music_\**" />
+	</ItemGroup>
+	<ItemGroup>
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\ResonanceArray._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_0._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_1._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_10_0._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_10_1._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_10_2._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_1_0._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_1_1._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_1_2._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_2_0._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_2_1._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_2_2._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_3_0._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_3_1._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_3_2._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_4_0._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_4_1._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_4_2._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_5_0._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_5_1._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_5_2._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_6_0._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_6_1._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_6_2._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_7_0._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_7_1._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_7_2._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_8_0._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_8_1._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_8_2._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_9_0._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_9_1._png" />
+	  <AdditionalFiles Include="ResourcePack\Content\Images\SplashScreens\Splash_9_2._png" />
+	  <AdditionalFiles Include="ResourcePack\icon._png" />
+	</ItemGroup>
+	<ItemGroup>
 	  <PackageReference Include="Lib.Harmony" Version="2.3.6" />
 	</ItemGroup>
 

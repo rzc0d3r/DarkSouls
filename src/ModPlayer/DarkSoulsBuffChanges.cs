@@ -4,6 +4,8 @@ using Terraria.ModLoader;
 
 using System.Collections.Generic;
 
+using DarkSouls.Core;
+
 namespace DarkSouls
 {
     public class DarkSoulsBuffChanges : GlobalBuff
@@ -54,7 +56,7 @@ namespace DarkSouls
             if (!terrariaDebuff.Contains(type))
                 return false;
             if (time > player.buffTime[buffIndex])
-                player.buffTime[buffIndex] = (int)(time * (1 - DarkSoulsPlayer.GetDebuffsResistanceByResistance(player.GetModPlayer<DarkSoulsPlayer>().dsResistance)));
+                player.buffTime[buffIndex] = (int)(time * (1 - StatFormulas.GetDebuffsResistanceByResistance(player.GetModPlayer<DarkSoulsPlayer>().dsResistance)));
             return true;
         }
     }

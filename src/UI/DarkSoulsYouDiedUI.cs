@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Terraria;
+using Terraria.Utilities;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 using Terraria.UI;
@@ -9,6 +10,7 @@ using ReLogic.Graphics;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.Localization;
 
 namespace DarkSouls.UI
 {
@@ -66,7 +68,7 @@ namespace DarkSouls.UI
                 Color.Black * alpha
             );
 
-            string text = "YOU DIED";
+            string text = Language.GetText("Mods.DarkSouls.UI.YouDiedUI.MainText").Value;
             DynamicSpriteFont font = DarkSouls.OptimusPrincepsFont;
             Vector2 textSize = font.MeasureString(text) * textScale;
             Vector2 position = new Vector2(Main.screenWidth / 2f, Main.screenHeight / 2f) - textSize / 2f;
@@ -75,7 +77,7 @@ namespace DarkSouls.UI
             spriteBatch.DrawString(font, text, position, Color.Firebrick * alpha, 0f, Vector2.Zero, textScale, SpriteEffects.None, 0f);
 
             int respawnTimeInSeconds = (int)Math.Ceiling(Main.LocalPlayer.respawnTimer / 60f);
-            string respawnText = $"Respawning in {respawnTimeInSeconds} seconds...";
+            string respawnText = Language.GetText("Mods.DarkSouls.UI.YouDiedUI.RespawningText").WithFormatArgs(respawnTimeInSeconds).Value;
             Vector2 respawnTextSize = font.MeasureString(respawnText) * 0.3f;
             Vector2 respawnPosition = new Vector2(Main.screenWidth / 2f, Main.screenHeight / 2f) - respawnTextSize / 2f + new Vector2(0, respawnTextSize.Y) * 1.25f;
 

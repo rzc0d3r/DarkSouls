@@ -1,21 +1,34 @@
+
+using System.IO;
+using System.Collections.Generic;
+
+using Terraria;
+using Terraria.ID;
+using Terraria.Audio;
+using Terraria.ModLoader;
+
 using ReLogic.Content;
 using ReLogic.Graphics;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Terraria;
-using Terraria.Audio;
-using Terraria.ID;
-using Terraria.ModLoader;
+
+using DarkSouls.Utils;
+using DarkSouls.Config;
 
 namespace DarkSouls
 {
     public class DarkSouls : Mod
     {
+        #region HotKeys
         public static ModKeybind ToggleDarkSoulsStatsUIKey;
+        public static ModKeybind DashKey;
+        #endregion
 
+        #region Fonts
         public static DynamicSpriteFont OptimusPrincepsFont;
+        #endregion
 
+        #region Sounds Variables
+        public static SoundStyle dsConsumeSoulSound;
+        public static SoundStyle dsNewAreaSound;
         public static SoundStyle dsInferfaceSound;
         public static SoundStyle dsInferfaceClickSound;
         public static SoundStyle dsInferfaceReturnSound;
@@ -33,15 +46,27 @@ namespace DarkSouls
 
         private static float DSMaleDamageSoundVolume = 0.55f;
         private static float DSFemaleDamageSoundVolume = 0.5f;
-
-        public const string CrimsonColorTooltip = "c/dc143c";
-        public const string DodgerBlueColorTooltip = "c/1e90ff";
-        public const string MediumSeaGreenColorTooltip = "c/3cb371";
+        #endregion
 
         public enum NetMessageTypes : byte
         {
             GetSouls,
             SyncVitality
+        }
+
+        public override void PostSetupContent()
+        {
+            DarkSoulsResourcePack.GetInfo();
+
+            if (!DarkSoulsResourcePack.IsInstalled)
+                DarkSoulsResourcePack.Install();
+
+            if (ClientConfig.GetDOHSValueFromJSON())
+                DarkSoulsResourcePack.DisableOverrideHurtSound();
+            else
+                DarkSoulsResourcePack.EnableOverrideHurtSound();
+
+            DarkSoulsResourcePack.GetInfo();
         }
 
         public override void Load()
@@ -50,11 +75,14 @@ namespace DarkSouls
             {
                 // Keybinds
                 ToggleDarkSoulsStatsUIKey = KeybindLoader.RegisterKeybind(this, "Toggle Dark Souls Stats UI", "OemTilde");
+                DashKey = KeybindLoader.RegisterKeybind(this, "Dash", "Double-tap A or D");
 
                 // Fonts
                 OptimusPrincepsFont = ModContent.Request<DynamicSpriteFont>("DarkSouls/Fonts/OptimusPrinceps", AssetRequestMode.ImmediateLoad).Value;
 
                 // SoundStyles
+                dsConsumeSoulSound = new("DarkSouls/Sounds/DS_ConsumeSoul") { Volume = 0.85f };
+                dsNewAreaSound = new("DarkSouls/Sounds/DS_NewArea") { Volume = 0.35f };
                 dsInferfaceSound = new("DarkSouls/Sounds/DS_Interface") { Volume = 0.55f };
                 dsInferfaceClickSound = new("DarkSouls/Sounds/DS_InterfaceClick") { Volume = 0.85f };
                 dsInferfaceReturnSound = new("DarkSouls/Sounds/DS_InterfaceReturn") { Volume = 0.75f };
@@ -92,8 +120,12 @@ namespace DarkSouls
         public override void Unload()
         {
             ToggleDarkSoulsStatsUIKey = null;
+            DashKey = null;
+
             OptimusPrincepsFont = null;
 
+            dsConsumeSoulSound = default;
+            dsNewAreaSound = default;
             dsInferfaceSound = default;
             dsInferfaceClickSound = default;
             dsInferfaceReturnSound = default;
@@ -114,6 +146,7 @@ namespace DarkSouls
         public override void HandlePacket(BinaryReader reader, int whoAmI)
         {
             NetMessageTypes messageType = (NetMessageTypes)reader.ReadByte();
+            byte playerID;
             switch (messageType)
             {
                 case NetMessageTypes.GetSouls:
@@ -121,7 +154,7 @@ namespace DarkSouls
                     Main.LocalPlayer.GetModPlayer<DarkSoulsPlayer>().AddSouls(souls);
                     break;
                 case NetMessageTypes.SyncVitality:
-                    byte playerID = reader.ReadByte();
+                    playerID = reader.ReadByte();
                     int newVitalityValue = reader.ReadInt32();
 
                     Player player = Main.player[playerID];
@@ -137,18 +170,6 @@ namespace DarkSouls
                     }
                     break;
             }
-        }
-
-        public static SoundStyle GetRandomDamageSounds(out int soundIndex, bool male = true, int excludeSoundIndex = -1)
-        {
-            List<SoundStyle> list = male ? dsMaleDamageSounds : dsFemaleDamageSounds;
-            int index;
-            do
-            {
-                index = Main.rand.Next(list.Count);
-            } while (index == excludeSoundIndex);
-            soundIndex = index;
-            return list[index];
         }
     }
 }

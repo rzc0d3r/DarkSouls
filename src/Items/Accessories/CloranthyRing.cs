@@ -15,11 +15,12 @@ namespace DarkSouls.Items.Accessories
         public override void SetDefaults()
         {
             base.SetDefaults();
-            Item.width = 51;
-            Item.height = 53;
+            Item.width = 27;
+            Item.height = 29;
             Item.accessory = true;
             Item.rare = ItemRarityID.Green;
             Item.value = Item.buyPrice(0, 25, 0, 0);
+            Item.scale = 1.1f;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

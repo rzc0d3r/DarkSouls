@@ -1,94 +1,224 @@
-﻿using DarkSouls.Config;
-using DarkSouls.Items.Accessories;
-using DarkSouls.UI;
-using Microsoft.Xna.Framework;
-using ReLogic.Utilities;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
+using System.Collections.Generic;
+
+using Microsoft.Xna.Framework;
+
 using Terraria;
+using Terraria.ID;
 using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.GameInput;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
+using Terraria.Localization;
+using Terraria.DataStructures;
 
+using ReLogic.Utilities;
+
+using DarkSouls.UI;
+using DarkSouls.Core;
+using DarkSouls.Utils;
+using DarkSouls.Config;
+using DarkSouls.Projectiles;
+using DarkSouls.DataStructures;
+using DarkSouls.Items.Accessories;
 
 namespace DarkSouls
 {
     public class DarkSoulsPlayer : ModPlayer
     {
-        public string covenant = "None";
-        public int dsSouls = 0;
-        public int dsVitality = 1;
-        public int dsAttunement = 1;
-        public int dsEndurance = 1;
-        public int dsStrength = 1;
-        public int dsDexterity = 1;
-        public int dsResistance = 1;
-        public int dsIntelligence = 1;
-        public int dsFaith = 1;
-        public int dsHumanity = 0;
+        #region Player Stats
+        public string covenant = Language.GetTextValue("Mods.DarkSouls.UI.StatsUI.CovenantNone");
 
+        private long souls;
+        public long dsSouls
+        {
+            get => souls;
+            set => souls = Math.Max(0, value);
+        }
+
+        private int vitality = 1;
+        public int dsVitality
+        {
+            get => vitality;
+            set => vitality = Math.Clamp(value, 1, 99);
+        }
+
+        private int attunement = 1;
+        public int dsAttunement
+        {
+            get => attunement;
+            set => attunement = Math.Clamp(value, 1, 99);
+        }
+
+        private int endurance = 1;
+        public int dsEndurance
+        {
+            get => endurance;
+            set => endurance = Math.Clamp(value, 1, 99);
+        }
+
+        private int strength = 1;
+        public int dsStrength
+        {
+            get => strength;
+            set => strength = Math.Clamp(value, 1, 99);
+        }
+
+        private int dexterity = 1;
+        public int dsDexterity
+        {
+            get => dexterity;
+            set => dexterity = Math.Clamp(value, 1, 99);
+        }
+
+        private int resistance = 1;
+        public int dsResistance
+        {
+            get => resistance;
+            set => resistance = Math.Clamp(value, 1, 99);
+        }
+
+        private int intelligence = 1;
+        public int dsIntelligence
+        {
+            get => intelligence;
+            set => intelligence = Math.Clamp(value, 1, 99);
+        }
+
+        private int faith = 1;
+        public int dsFaith
+        {
+            get => faith;
+            set => faith = Math.Clamp(value, 1, 99);
+        }
+
+        private int humanity;
+        public int dsHumanity
+        {
+            get => humanity;
+            set => humanity = Math.Clamp(value, 0, 99);
+        }
+        #endregion
+
+        #region Stamina Variables
         public const float DEFAULT_MAX_STAMINA = 60;
         public float maxStamina = DEFAULT_MAX_STAMINA;
         public float currentStamina = DEFAULT_MAX_STAMINA;
-        public float usedStamina = 0;
+
         private float staminaRegenRate = 0.6f;
         private int staminaRegenDelay = 0;
+        #endregion
+
+        #region Resource Bars: Stamina Variables
+        public float usedStamina = 0;
         private int maxStaminaRegenDelay = 90;
         private int maxUsedStaminaRegenDelay = 65;
         private int usedStaminaRegenDelay = 0;
         private float usedStaminaRegenRate = 4;
+        #endregion
 
+        #region Resource Bars: Mana Variables
         public int usedMana = 0;
         public int usedManaRegenRate = 4;
         public int usedManaRegenDelay = 0;
         public int maxUsedManaRegenDelay = 65;
+        #endregion
 
+        #region Resource Bars: HP Variables
         public int usedHP = 0;
         public int usedLifeRegenRate = 4;
         public int usedLifeRegenDelay = 0;
         public int maxUsedLifeRegenDelay = 65;
+        #endregion
 
-        private int pendingSouls = 0;
+        #region Souls Timers
+        private long pendingSouls = 0;
         private float soulTimer = 0f;
         private float soulDelay = 1.25f;
+        #endregion
 
+        #region Damage Sound Variables
         private float damageSoundTimer = 0f;
         private float damageSoundDelay = 0.3f;
 
         private int lastSoundStyleDamageIndex = -1;
         private SlotId lastDamageSoundSlotId;
+        #endregion
 
-        private Dictionary<int, bool> newDebuffs = new(); // stores the state of the buffs that were first applied to the player
+        #region Dash Variables
+        public const int dashDown = 0;
+        public const int dashUp = 1;
+        public const int dashRight = 2;
+        public const int dashLeft = 3;
+        private int dashDir = -1;
 
-        // Dash
-        private int dashRight = 2;
-        private int dashLeft = 3;
-        private int dashDir = 0;
         private int dashDelay = 0;
         private int dashTimer = 0;
         private int dashCooldown = 40;
-        private const int dashDuration = 20;
+        public static int dashDuration { get; protected set; } = 20;
         private const float dashVelocity = 10f;
+        private bool customDashKey = false;
+        #endregion
 
-        // Accesories
+        #region Buffs Variables
+        private Dictionary<int, bool> newDebuffs = new(); // stores the state of the buffs that were first applied to the player
+        #endregion
+
+        #region Bloodstain Variables
+        public List<Bloodstain> bloodstains = new();
+        public int currentBloodstainProjectile = -1;
+        #endregion
+
+        #region Accessories Effects (flags)
         public bool CloranthyRingEffect = false;
+        #endregion
 
         public int PlayerLevel => dsVitality + dsAttunement + dsEndurance + dsStrength +
             dsDexterity + dsResistance + dsIntelligence + dsFaith;
 
+        public override void ProcessTriggers(TriggersSet triggersSet)
+        {
+            if (DarkSouls.ToggleDarkSoulsStatsUIKey.JustPressed)
+                ModContent.GetInstance<DarkSoulsStatsUISystem>().ToggleUI();
+        }
+
         public override void ResetEffects()
         {
-            if (Player.controlRight && Player.releaseRight && Player.doubleTapCardinalTimer[dashRight] < 15 && Player.doubleTapCardinalTimer[dashLeft] == 0)
-                dashDir = dashRight;
-            else if (Player.controlLeft && Player.releaseLeft && Player.doubleTapCardinalTimer[dashLeft] < 15 && Player.doubleTapCardinalTimer[dashRight] == 0)
-                dashDir = dashLeft;
+            #region Dash Handler
+            customDashKey = DarkSouls.DashKey.GetAssignedKeys().Count > 0 && DarkSouls.DashKey.GetAssignedKeys()[0] != "Double-tap A or D";
+            if (customDashKey)
+            {
+                if (DarkSouls.DashKey.JustPressed)
+                {
+                    if (Player.controlDown)
+                        dashDir = dashDown;
+                    else if (Player.controlUp)
+                        dashDir = dashUp;
+                    else
+                        dashDir = Player.direction == 1 ? dashRight : dashLeft;
+                }
+                else
+                    dashDir = -1;
+            }
             else
-                dashDir = 0;
-
+            {
+                if (Player.controlDown && Player.releaseDown && Player.doubleTapCardinalTimer[dashDown] < 15)
+                    dashDir = dashDown;
+                else if (Player.controlUp && Player.releaseUp && Player.doubleTapCardinalTimer[dashUp] < 15)
+                    dashDir = dashUp;
+                else if (Player.controlRight && Player.releaseRight && Player.doubleTapCardinalTimer[dashRight] < 15 && Player.doubleTapCardinalTimer[dashLeft] == 0)
+                    dashDir = dashRight;
+                else if (Player.controlLeft && Player.releaseLeft && Player.doubleTapCardinalTimer[dashLeft] < 15 && Player.doubleTapCardinalTimer[dashRight] == 0)
+                    dashDir = dashLeft;
+                else
+                    dashDir = -1;
+            }
+            #endregion
+            
+            #region Reset Accessories Flags
             CloranthyRingEffect = false;
+            #endregion
         }
 
         public override void PreUpdate()
@@ -103,20 +233,41 @@ namespace DarkSouls
 
         public override void PreUpdateMovement()
         {
-            // Dash with invincibility frames
-            if (dashDir != 0 && dashDelay == 0 && currentStamina >= 30f)
+            #region Dash with invincibility frames
+            if (!Player.mount.Active && dashDir != -1 && dashDelay == 0 && currentStamina >= 30f)
             {
-                ConsumeStamina(30f);
-                if (dashDir == dashRight && Player.velocity.X < dashVelocity)
-                    Player.velocity.X = dashVelocity;
-                else if (dashDir == dashLeft && Player.velocity.X > -dashVelocity)
-                    Player.velocity.X = -dashVelocity;
+                Vector2 newVelocity = Player.velocity;
+
+                switch (dashDir)
+                {
+                    
+                    //case dashUp when Player.velocity.Y > -dashVelocity:
+                    //case dashDown when Player.velocity.Y < dashVelocity:
+                    //{
+                    //    float dashDirection = dashDir == dashDown ? 1 : -1.3f;
+                    //    newVelocity.Y = dashDirection * dashVelocity;
+                    //    break;
+                    //}
+                    case dashLeft when Player.velocity.X > -dashVelocity:
+                    case dashRight when Player.velocity.X < dashVelocity:
+                    {
+                        float dashDirection = dashDir == dashRight ? 1 : -1;
+                        newVelocity.X = dashDirection * dashVelocity;
+                        break;
+                    }
+                    default:
+                        return;
+                }
+
                 dashDelay = dashCooldown;
                 dashTimer = dashDuration;
+                Player.velocity = newVelocity;
+
+                ConsumeStamina(30f);
                 Player.immune = true;
-                Player.immuneTime = GetInvincibilityFramesByResistance(dsResistance);
+                Player.immuneTime = StatFormulas.GetInvincibilityFramesByResistance(dsResistance);
             }
-            
+
             if (dashDelay > 0)
                 dashDelay--;
 
@@ -126,13 +277,7 @@ namespace DarkSouls
                 Player.armorEffectDrawShadowEOCShield = true;
                 dashTimer--;
             }
-        }
-
-        public override void ProcessTriggers(TriggersSet triggersSet)
-        {
-            DarkSoulsPlayer dsPlayer = Main.LocalPlayer.GetModPlayer<DarkSoulsPlayer>();
-            if (DarkSouls.ToggleDarkSoulsStatsUIKey.JustPressed)
-                ModContent.GetInstance<DarkSoulsStatsUISystem>().ToggleUI();
+            #endregion
         }
 
         public override void SaveData(TagCompound tag)
@@ -147,13 +292,25 @@ namespace DarkSouls
             tag["dsIntelligence"] = dsIntelligence;
             tag["dsFaith"] = dsFaith;
             tag["dsHumanity"] = dsHumanity;
-            tag["covenant"] = covenant;
+
+            if (covenant != "" && covenant != Language.GetTextValue("Mods.DarkSouls.UI.StatsUI.CovenantNone"))
+                tag["covenant"] = covenant;
+            if (bloodstains.Count > 0)
+                tag["bloodstains"] = bloodstains.Select(x => x.ToTag()).ToList();
         }
 
         public override void LoadData(TagCompound tag)
         {
             if (tag.ContainsKey("dsSouls"))
-                dsSouls = tag.GetInt("dsSouls");
+            {
+                object rawSouls = tag["dsSouls"];
+                if (rawSouls is long l)
+                    dsSouls = l;
+                else if (rawSouls is int i)
+                    dsSouls = i;
+                else
+                    dsSouls = 0;
+            }
             if (tag.ContainsKey("dsVitality"))
                 dsVitality = tag.GetInt("dsVitality");
             if (tag.ContainsKey("dsAttunement"))
@@ -173,34 +330,78 @@ namespace DarkSouls
             if (tag.ContainsKey("dsHumanity"))
                 dsHumanity = tag.GetInt("dsHumanity");
             if (tag.ContainsKey("covenant"))
+            {
                 covenant = tag.GetString("covenant");
+                if (covenant == "None")
+                    covenant = Language.GetTextValue("Mods.DarkSouls.UI.StatsUI.CovenantNone");
+            }
+            else
+                covenant = Language.GetTextValue("Mods.DarkSouls.UI.StatsUI.CovenantNone");
 
-            maxStamina = GetStaminaByEndurance(dsEndurance);
+            if (tag.ContainsKey("bloodstains"))
+                bloodstains = tag.GetList<TagCompound>("bloodstains").Select(Bloodstain.FromTag).ToList();
+
+            maxStamina = StatFormulas.GetStaminaByEndurance(dsEndurance);
             currentStamina = maxStamina;
         }
 
         public override void OnEnterWorld()
         {
+            var lostSoul = bloodstains.FirstOrDefault(s => s.worldGUID == Main.ActiveWorldFileData.UniqueId.ToString());
+            if (lostSoul != null && Main.myPlayer == Player.whoAmI)
+            {
+                currentBloodstainProjectile = Projectile.NewProjectile(
+                    Player.GetSource_Death(),
+                    lostSoul.position,
+                    Vector2.Zero,
+                    ModContent.ProjectileType<BloodstainProjectile>(),
+                    0,
+                    0f,
+                    Player.whoAmI);
+            }
+
             DarkSoulsStatsUISystem dsStatsUISystem = ModContent.GetInstance<DarkSoulsStatsUISystem>();
-            dsStatsUISystem.dsStatsUI.Activate();
-            dsStatsUISystem.ToggleUI();
-            dsStatsUISystem.ToggleUI();
+            dsStatsUISystem.ShowUI();
             dsStatsUISystem.HideUI();
 
             usedHP = Player.statLifeMax2;
         }
 
-        public override void OnRespawn()
-        {
-            usedHP = Player.statLifeMax2;
-        }
+        public override void OnRespawn() => usedHP = Player.statLifeMax2;
 
         public override void PostUpdate()
         {
-            Player.ConsumedLifeCrystals = Math.Clamp(GetHPByVitality(dsVitality) / 20, 0, Player.LifeCrystalMax);
-            Player.ConsumedManaCrystals = Math.Clamp(GetManaByAttunement(dsAttunement) / 20, 0, Player.ManaCrystalMax);
+            Player.ConsumedLifeCrystals = Math.Clamp(StatFormulas.GetHPByVitality(dsVitality) / 20, 0, Player.LifeCrystalMax);
+            Player.ConsumedManaCrystals = Math.Clamp(StatFormulas.GetManaByAttunement(dsAttunement) / 20, 0, Player.ManaCrystalMax);
 
-            maxStamina = GetStaminaByEndurance(dsEndurance);
+            // Handling click on the location of bloodstain
+            if (currentBloodstainProjectile != -1 && Main.mouseRight && Main.mouseRightRelease && Main.netMode != NetmodeID.Server)
+            {
+                Projectile proj = Main.projectile[currentBloodstainProjectile];
+
+                if (Vector2.Distance(Player.Center, proj.position) <= 110f)
+                {
+                    if (proj.active && proj.type == ModContent.ProjectileType<BloodstainProjectile>())
+                    {
+                        Vector2 mouseWorld = Main.MouseWorld;
+                        if (proj.Hitbox.Contains(mouseWorld.ToPoint()))
+                        {
+                            Bloodstain bloodstain = bloodstains.FirstOrDefault(s => s.worldGUID == Main.ActiveWorldFileData.UniqueId.ToString());
+                            if (bloodstain != null) {
+                                Main.NewText(Language.GetText("Mods.DarkSouls.BloodstainMessage").WithFormatArgs(bloodstain.souls, bloodstain.humanity).Value, Color.Cyan);
+                                SoundEngine.PlaySound(DarkSouls.dsNewAreaSound, Player.Center);
+                                proj.Kill();
+                                currentBloodstainProjectile = -1;
+                                dsSouls += bloodstain.souls;
+                                dsHumanity += bloodstain.humanity;
+                                bloodstains.RemoveAll(x => x.worldGUID == Main.ActiveWorldFileData.UniqueId.ToString());
+                            }
+                        }
+                    }
+                }
+            }
+
+            maxStamina = StatFormulas.GetStaminaByEndurance(dsEndurance);
 
             if (pendingSouls > 0)
             {
@@ -257,7 +458,7 @@ namespace DarkSouls
 
         public override void PostUpdateBuffs()
         {
-            // this code fragment handles the first apply of debuffs
+            // This code fragment handles the first apply of debuffs
             // GlobalBuff.ReApply function overload (DSBuffChanges.cs file) is used to handle the reapplication of debuffs
             Dictionary<int, int> currentDebuffs = new();
             List<int> playerBuffs = Player.buffType.ToList();
@@ -282,20 +483,41 @@ namespace DarkSouls
 
                 if (isNew)
                 {
-                    Player.buffTime[debuffIndex] = (int)(Player.buffTime[debuffIndex] * (1f - GetDebuffsResistanceByResistance(dsResistance)));
+                    Player.buffTime[debuffIndex] = (int)(Player.buffTime[debuffIndex] * (1f - StatFormulas.GetDebuffsResistanceByResistance(dsResistance)));
                     newDebuffs[debuffType] = false;
                 }
             }
         }
 
+        public override void ModifyMaxStats(out StatModifier health, out StatModifier mana)
+        {
+            // simulation of the use of health and mana crystals, for the correct behavior conditions various events
+            int totalHealthBonus = StatFormulas.GetHPByVitality(dsVitality);
+            int consumedLifeCrystals = Math.Clamp(totalHealthBonus / 20, 0, Player.LifeCrystalMax);
+            int healthBonus = totalHealthBonus - consumedLifeCrystals * 20;
+
+            int totalManaBonus = StatFormulas.GetManaByAttunement(dsAttunement);
+            int consumedManaCrystals = Math.Clamp(totalManaBonus / 20, 0, Player.ManaCrystalMax);
+            int manaBonus = totalManaBonus - consumedManaCrystals * 20;
+
+            Player.ConsumedLifeCrystals = consumedLifeCrystals;
+            Player.ConsumedManaCrystals = consumedManaCrystals;
+
+            health = StatModifier.Default;
+            health.Base = healthBonus;
+
+            mana = StatModifier.Default;
+            mana.Base = manaBonus;
+        }
+
         public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers)
         {
-            modifiers.FinalDamage *= (float)(1f - GetDefenseByResistance(dsResistance));
+            modifiers.FinalDamage *= (float)(1f - StatFormulas.GetDefenseByResistance(dsResistance));
         }
 
         public override void ModifyHitByProjectile(Projectile proj, ref Player.HurtModifiers modifiers)
         {
-            modifiers.FinalDamage *= (float)(1f - GetDefenseByResistance(dsResistance));
+            modifiers.FinalDamage *= (float)(1f - StatFormulas.GetDefenseByResistance(dsResistance));
         }
 
         public override void OnConsumeMana(Item item, int manaConsumed)
@@ -310,11 +532,15 @@ namespace DarkSouls
                 return;
             if (damageSoundTimer < damageSoundDelay)
                 return;
-            ActiveSound activeSound;
-            if (SoundEngine.TryGetActiveSound(lastDamageSoundSlotId, out activeSound))
-                activeSound.Volume -= 0.2f;
-            SoundStyle sound = DarkSouls.GetRandomDamageSounds(out lastSoundStyleDamageIndex, Player.Male, lastSoundStyleDamageIndex);
-            lastDamageSoundSlotId = SoundEngine.PlaySound(sound, Player.Center);
+
+            if (!Main.dedServ && !ClientConfig.Instance.DisableOverrideHurtSounds)
+            {
+                ActiveSound activeSound;
+                if (SoundEngine.TryGetActiveSound(lastDamageSoundSlotId, out activeSound))
+                    activeSound.Volume -= 0.2f;
+                SoundStyle sound = SoundUtils.GetRandomDamageSound(out lastSoundStyleDamageIndex, Player.Male, lastSoundStyleDamageIndex);
+                lastDamageSoundSlotId = SoundEngine.PlaySound(sound, Player.Center);
+            }
             damageSoundTimer = 0f;
 
             usedLifeRegenDelay = maxUsedLifeRegenDelay;
@@ -323,32 +549,65 @@ namespace DarkSouls
 
         public override void Kill(double damage, int hitDirection, bool pvp, PlayerDeathReason damageSource)
         {
-            bool diedFromFall = damageSource.SourceOtherIndex == 0; // fall damage
-            ActiveSound activeSound;
-            if (SoundEngine.TryGetActiveSound(lastDamageSoundSlotId, out activeSound))
-                activeSound.Volume -= 0.4f;
-            if (Player.Male)
+            if (Main.myPlayer == Player.whoAmI)
             {
-                if (diedFromFall)
-                    SoundEngine.PlaySound(DarkSouls.dsMaleFallinDeadSound, Player.Center);
-                else
-                    SoundEngine.PlaySound(DarkSouls.dsMaleDeadSound, Player.Center);
+                // Player death handling
+                if (!ClientConfig.Instance.DisableOverrideHurtSounds)
+                {
+                    bool diedFromFall = damageSource.SourceOtherIndex == 0; // fall damage
+                    ActiveSound activeSound;
+                    if (SoundEngine.TryGetActiveSound(lastDamageSoundSlotId, out activeSound))
+                        activeSound.Volume -= 0.4f;
+                    if (Player.Male)
+                    {
+                        if (diedFromFall)
+                            SoundEngine.PlaySound(DarkSouls.dsMaleFallinDeadSound, Player.Center);
+                        else
+                            SoundEngine.PlaySound(DarkSouls.dsMaleDeadSound, Player.Center);
+                    }
+                    else
+                        SoundEngine.PlaySound(DarkSouls.dsFemaleDeadSound, Player.Center);
+                }
+
+                ModContent.GetInstance<DarkSoulsYouDiedUISystem>().ShowUI();
+                SoundEngine.PlaySound(DarkSouls.dsThruDeath);
+
+                currentStamina = maxStamina;
+
+                // Creating a bloodstain (local only)
+                if (currentBloodstainProjectile != -1 && Main.projectile[currentBloodstainProjectile].active && Main.projectile[currentBloodstainProjectile].type == ModContent.ProjectileType<BloodstainProjectile>())
+                {
+                    Main.projectile[currentBloodstainProjectile].Kill();
+                    currentBloodstainProjectile = -1;
+                }
+
+                bloodstains.RemoveAll(x => x.worldGUID == Main.ActiveWorldFileData.UniqueId.ToString());
+
+                if (dsSouls > 0 || dsHumanity > 0)
+                {
+                    bloodstains.Add(new(Player.Center, dsHumanity, dsSouls, Player));
+                    dsSouls = 0;
+                    dsHumanity = 0;
+                    currentBloodstainProjectile = Projectile.NewProjectile(
+                        Player.GetSource_Death(),
+                        Player.Center,
+                        Vector2.Zero,
+                        ModContent.ProjectileType<BloodstainProjectile>(),
+                        0,
+                        0f,
+                        Player.whoAmI);
+                }
             }
-            else
-                SoundEngine.PlaySound(DarkSouls.dsFemaleDeadSound, Player.Center);
-            ModContent.GetInstance<DarkSoulsYouDiedUISystem>().ShowUI();
-            SoundEngine.PlaySound(DarkSouls.dsThruDeath);
-            currentStamina = maxStamina;
         }
 
+        #region Netcode
         public override void SyncPlayer(int toWho, int fromWho, bool newPlayer)
         {
-            ModPacket packet = Mod.GetPacket();
-
-            packet.Write((byte)DarkSouls.NetMessageTypes.SyncVitality);
-            packet.Write((byte)Player.whoAmI);
-            packet.Write(dsVitality);
-            packet.Send(toWho, fromWho);
+            var vitalityPacket = Mod.GetPacket();
+            vitalityPacket.Write((byte)DarkSouls.NetMessageTypes.SyncVitality);
+            vitalityPacket.Write((byte)Player.whoAmI);
+            vitalityPacket.Write(dsVitality);
+            vitalityPacket.Send(toWho, fromWho);
         }
 
         public override void CopyClientState(ModPlayer targetCopy)
@@ -370,135 +629,16 @@ namespace DarkSouls
                 packet.Send();
             }
         }
+        #endregion
 
-        public override void ModifyMaxStats(out StatModifier health, out StatModifier mana)
-        {
-            // simulation of the use of health and mana crystals, for the correct behavior conditions various events
-            int totalHealthBonus = GetHPByVitality(dsVitality);
-            int consumedLifeCrystals = Math.Clamp(totalHealthBonus / 20, 0, Player.LifeCrystalMax);
-            int healthBonus = totalHealthBonus - consumedLifeCrystals * 20;
-
-            int totalManaBonus = GetManaByAttunement(dsAttunement);
-            int consumedManaCrystals = Math.Clamp(totalManaBonus / 20, 0, Player.ManaCrystalMax);
-            int manaBonus = totalManaBonus - consumedManaCrystals * 20;
-
-            Player.ConsumedLifeCrystals = consumedLifeCrystals;
-            Player.ConsumedManaCrystals = consumedManaCrystals;
-
-            health = StatModifier.Default;
-            health.Base = healthBonus;
-
-            mana = StatModifier.Default;
-            mana.Base = manaBonus;
-        }
-
-        public static int GetHPByVitality(int vitality)
-        {
-            int hp = 0;
-            hp += Math.Max(0, Math.Min(vitality - 1, 20)) * 15; // +300
-            hp += Math.Max(0, Math.Min(vitality - 21, 20)) * 5; // +400
-            hp += Math.Max(0, Math.Min(vitality - 41, 57)) * 2; // +514
-            if (vitality >= 99)
-                hp = (hp + 9) / 10 * 10; // rounding by multiples of 10
-            return hp;
-        }
-
-        public static int GetManaByAttunement(int attunement)
-        {
-            int mana = 0;
-            mana += Math.Max(0, Math.Min(attunement - 1, 9)) * 20; // +180
-            mana += Math.Max(0, Math.Min(attunement - 10, 88)) * 2; // +356
-            if (attunement >= 99)
-                mana = (mana + 9) / 10 * 10; // rounding by multiples of 10
-            return mana;
-        }
-
-        public static float GetDefenseByResistance(int resistance)
-        {
-            float defense = 0f;
-            defense += Math.Max(0, Math.Min(resistance - 1, 25)) * 0.006f; // 15%
-            defense += Math.Max(0, Math.Min(resistance - 26, 73)) * ((0.25f - defense) / 73); // 25%
-            return defense;
-        }
-
-        public static float GetDebuffsResistanceByResistance(int resistance)
-        {
-            float debuffResistance = 0f;
-            debuffResistance += Math.Max(0, Math.Min(resistance - 1, 25)) * 0.005f; // 12.5%
-            debuffResistance += Math.Max(0, Math.Min(resistance - 26, 73)) * ((0.2f - debuffResistance) / 73); // 20%
-            return debuffResistance;
-        }
-
-        public static int GetInvincibilityFramesByResistance(int resistance)
-        {
-            int frames = dashDuration / 2;
-            frames += Math.Max(0, Math.Min(resistance - 1, 31)) / (30 / ((dashDuration - frames) / 2)); // +5
-            frames += Math.Max(0, Math.Min(resistance - 32, 67) / (67 / (dashDuration - frames)));
-            return frames;
-        }
-
-        public static float GetStaminaByEndurance(int endurance)
-        {
-            float stamina = DEFAULT_MAX_STAMINA;
-            stamina += Math.Max(0, Math.Min(endurance - 1, 10)) * 3; // +30
-            stamina += Math.Max(0, Math.Min(endurance - 11, 30)) * 2; // +60
-            stamina += Math.Max(0, Math.Min(endurance - 41, 57)) * 1; // +57
-            if (endurance >= 99)
-                stamina = (stamina + 9) / 10 * 10; // rounding by multiples of 10
-            return stamina;
-        }
-
-        public static float GetPotentialByStrength(int strength)
-        {
-            float potential = Math.Max(0, Math.Min(strength - 1, 40)) * (0.85f / 40); // 0.00 - 0.85 (strength: 1 - 41)
-            potential += Math.Max(0, Math.Min(strength - 41, 58)) * (0.15f / 58); // 0.85 - 1.00 (strength: 41 - 99)
-            return potential;
-        }
-            
-        public static float GetPotentialByDexterity(int dexterity)
-        {
-            float potential = Math.Max(0, Math.Min(dexterity - 1, 40)) * (0.85f / 40); // 0.00 - 0.85 (dexterity: 1 - 41)
-            potential += Math.Max(0, Math.Min(dexterity - 41, 58)) * (0.15f / 58); // 0.85 - 1.00 (dexterity: 41 - 99)
-            return potential;
-        }
-
-        public static float GetPotentialByIntelligence(int intelligence)
-        {
-            float potential = Math.Max(0, Math.Min(intelligence - 1, 50)) * (0.85f / 50); // 0.00 - 0.85 (intelligence: 1 - 51)
-            potential += Math.Max(0, Math.Min(intelligence - 51, 48)) * (0.15f / 48); // 0.85 - 1.00 (intelligence: 51 - 99)
-            return potential;
-        }
-
-        public static float GetPotentialByFaith(int faith)
-        {
-            float potential = Math.Max(0, Math.Min(faith - 1, 50) * (0.85f / 50)); // 0.00 - 0.85 (faith: 1 - 51)
-            potential += Math.Max(0, Math.Min(faith - 51, 48)) * (0.15f / 48); // 0.85 - 1.00 (faith: 51 - 99)
-            return potential;
-        }
-
-
-        public static int GetReqSoulsByLevel(int level)
-        {
-            int multiplier = ServerConfig.Instance.LevelUpCostMultiplierPercent;
-            int reqSouls = 0;
-
-            if (level >= 35) // 35+
-                reqSouls = (int)(0.02 * Math.Pow(level, 3) + 3.05 * Math.Pow(level, 2) + 90 * level - 6500);
-            else if (level > 0 && level < 35) // 1 - 35
-                reqSouls = (int)(500 * Math.Pow(1.025, level - 1)); // 2.5% increase per level
-
-            reqSouls = (int)(reqSouls * multiplier / 100f);
-
-            return reqSouls;
-        }
-
-        public void AddSouls(int amount, bool render = true)
+        #region Custom Functions
+        public void AddSouls(long amount, bool render = true)
         {
             if (amount <= 0)
                 return;
 
-            int multiplier = ServerConfig.Instance.SoulsGainMultiplierPercent;
-            amount = (int)(amount * multiplier / 100f);
+            float multiplier = ServerConfig.Instance.SoulsGainMultiplierPercent / 100f;
+            amount = (long)(amount * multiplier);
 
             dsSouls += amount;
             if (render)
@@ -522,5 +662,6 @@ namespace DarkSouls
             }
             return false;
         }
+        #endregion
     }
 }
