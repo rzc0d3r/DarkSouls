@@ -1,7 +1,8 @@
-﻿using DarkSouls.UI;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+
+using DarkSouls.UI;
 
 namespace DarkSouls.Items.Consumables
 {
@@ -25,13 +26,13 @@ namespace DarkSouls.Items.Consumables
 
         public override bool? UseItem(Player player) => true;
 
+        public override bool CanUseItem(Player player) => !ModContent.GetInstance<DarkSoulsStatsUISystem>().UserInterfaceIsVisible;
+
         public override bool ConsumeItem(Player player)
         {
             if (canConsume)
                 return true;
-            var UISystem = ModContent.GetInstance<DarkSoulsStatsUISystem>();
-            if (!UISystem.UserInterfaceIsVisible)
-                UISystem.ShowUI(respecStats: true);
+            ModContent.GetInstance<DarkSoulsStatsUISystem>().ShowUI(respecStats: true);
             return false;
         }
 
