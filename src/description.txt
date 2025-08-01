@@ -23,10 +23,10 @@ Main Features and Changes:
 
 To activate all changes, you need to enable the resource pack and set it to the highest priority in the tModLoader settings!
 
-You can download the resource pack here: https://steamcommunity.com/sharedfiles/filedetails/?id=3531989903
-
 Mod source code: https://github.com/rzc0d3r/DarkSouls
 Discord channel: https://discord.gg/yX3VjHwu3B
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Перед тем как писать комментарии вроде "Как мне повысить уровень?" и тому подобные — пожалуйста, сначала прочитайте вики. Я писал её не просто так.
 Ссылка на вики: https://github.com/rzc0d3r/DarkSouls/blob/main/README.md
