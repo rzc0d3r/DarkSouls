@@ -1,6 +1,7 @@
-- - - General information - - -
+Before posting comments like "How do I level up?" or similar, please read the wiki first. I didn’t write it for nothing.
+Wiki link: https://github.com/rzc0d3r/DarkSouls/blob/main
 
-Wiki: https://github.com/rzc0d3r/DarkSouls
+- - - General information - - -
 
 Main Features and Changes:
 1. Character stat leveling system: Vitality, Attunement, Endurance, Strength, Dexterity, Resistance, Intelligence, Faith  
@@ -16,20 +17,22 @@ Main Features and Changes:
 11. Multiplayer support
 12. Ability to customize the mod through the settings menu
 13. Accessories from the Dark Souls game series
+14. Upon death, you lose all your souls and humanity. A bloodstain will appear at the place of death, which you can use to recover everything
 
 ! Attention !
 
-To activate all changes — especially those related to audio and textures — you must install the resource pack and set it to the highest priority in tModLoader settings!
-
-You can download the resource pack here: https://steamcommunity.com/sharedfiles/filedetails/?id=3531989903
+To activate all changes, you need to enable the resource pack and set it to the highest priority in the tModLoader settings!
 
 [quote=rzc0d3r]
 Source code and full mod wiki: https://github.com/rzc0d3r/DarkSouls
 Discord channel: https://discord.gg/yX3VjHwu3B[/quote]
 
-- - - Общая информация - - -
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Вики: https://github.com/rzc0d3r/DarkSouls
+Перед тем как писать комментарии вроде "Как мне повысить уровень?" и тому подобные — пожалуйста, сначала прочитайте вики. Я писал её не просто так.
+Ссылка на вики: https://github.com/rzc0d3r/DarkSouls/blob/main/README.md
+
+- - - Общая информация - - -
 
 Основные нововведения и изменения:
 1. Система прокачки характеристик персонажа: Жизненная сила, ученость, выносливость, сила, ловкость, сопротивление, интеллект, вера
@@ -48,9 +51,7 @@ Discord channel: https://discord.gg/yX3VjHwu3B[/quote]
 
 ! Внимание !
 
-Для активации всех изменений, особенно связанных с заменой аудио, текстур требуется установить ресурс пак и поставить ему найвысший приоритет в настройках tmodloader!
-
-Ресурс пак можно скачать по ссылке: https://steamcommunity.com/sharedfiles/filedetails/?id=3531989903
+Для активации всех изменений, требуется включить ресурс пак и поставить ему найвысший приоритет в настройках tModLoader!
 
 [quote=rzc0d3r]
 Исходный код и полная вики по моду: https://github.com/rzc0d3r/DarkSouls
