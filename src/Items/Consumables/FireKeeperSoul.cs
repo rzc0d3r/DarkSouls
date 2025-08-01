@@ -30,7 +30,6 @@ namespace DarkSouls.Items.Consumables
             if (canConsume)
                 return true;
             var UISystem = ModContent.GetInstance<DarkSoulsStatsUISystem>();
-            Main.NewText(UISystem.UserInterfaceIsVisible);
             if (!UISystem.UserInterfaceIsVisible)
                 UISystem.ShowUI(respecStats: true);
             return false;
