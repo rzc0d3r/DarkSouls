@@ -23,7 +23,7 @@
 
 #### Окно повышение уровня
 
-![](https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/images/Menu_LevelUP.jpg)
+![](images/Menu_LevelUP_RU.jpg)
 
 На этом скриншоте вы видите окно повышения уровня персонажа, который только что был создан
 
