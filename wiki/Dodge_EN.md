@@ -2,8 +2,6 @@
 
 The mod allows the character to perform a dash **without needing any accessory** that would normally provide this ability.
 
-To dash, quickly double-tap the right (**D**) or left (**A**) movement key.
-
 A dash consumes **30** stamina. If you don’t have enough stamina, the dash simply won’t start.
 
 Immediately after the dash begins, the character gains **invincibility frames**, which completely protect them from any type of damage. During this state, the character can also phase through enemies.
