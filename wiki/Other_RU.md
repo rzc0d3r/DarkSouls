@@ -12,4 +12,4 @@
 
 8. В главное меню игры добавлен тема меню **Dark Souls Style**, при выборе этой темы будет воспроизведен звук загрузки меню Dark Souls, а также на фоне будет играть композиция **A Moment's Peace**:
 
-![](images/MenuTheme.jpg)
+![](images/MenuTheme_RU.jpg)
