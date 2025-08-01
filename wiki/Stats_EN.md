@@ -136,4 +136,4 @@ If you don’t click on the bonfire, but instead press the hotkey that opens/clo
 
 #### Status Menu (Current Player Stats)
 
-![](wiki/images/Menu_Status.jpg)
+![](images/Menu_Status.jpg)
