@@ -1,7 +1,11 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+
 using System.Collections.Generic;
+
+using DarkSouls.DataStructures;
+using static DarkSouls.Constants.Constants;
 
 namespace DarkSouls.Items
 {
@@ -56,11 +60,11 @@ namespace DarkSouls.Items
             if (damageLineIndex != -1)
             {
                 TooltipLine damageLine = tooltips[damageLineIndex];
-                damageLine.Text += $" ([{DarkSouls.MediumSeaGreenColorTooltip}:+{damageBonuses.total}] = " +
-                    $"[{DarkSouls.MediumSeaGreenColorTooltip}:{damageBonuses.byStrength}]+" +
-                    $"[{DarkSouls.MediumSeaGreenColorTooltip}:{damageBonuses.byDexterity}]+" +
-                    $"[{DarkSouls.MediumSeaGreenColorTooltip}:{damageBonuses.byIntelligence}]+" +
-                    $"[{DarkSouls.MediumSeaGreenColorTooltip}:{damageBonuses.byFaith}])";
+                damageLine.Text += $" ([{MediumSeaGreenColorTooltip}:+{damageBonuses.total}] = " +
+                    $"[{MediumSeaGreenColorTooltip}:{damageBonuses.byStrength}]+" +
+                    $"[{MediumSeaGreenColorTooltip}:{damageBonuses.byDexterity}]+" +
+                    $"[{MediumSeaGreenColorTooltip}:{damageBonuses.byIntelligence}]+" +
+                    $"[{MediumSeaGreenColorTooltip}:{damageBonuses.byFaith}])";
             }
         }
     }

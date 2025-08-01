@@ -4,7 +4,7 @@
 🇬🇧 Content and mechanics from the Dark Souls trilogy of games for Terraria  
 🇷🇺 Контент и механики из трилогии игр Dark Souls для Terraria  
 
-<img src="https://github.com/rzc0d3r/DarkSouls/blob/main/src/icon_workshop.png" alt="Icon" style="max-width: 100%;"/>
+<img src="src/icon_workshop.png" alt="Icon" style="max-width: 100%;"/>
 
 </div>
 
@@ -29,12 +29,11 @@
 11. Multiplayer support
 12. Ability to customize the mod through the settings menu
 13. Accessories from the Dark Souls game series
+14. Upon death, you lose all your souls and humanity. A bloodstain will appear at the place of death, which you can use to recover everything
 
 <strong>⚠ Attention ⚠</strong>  
 
-To activate all changes — especially those related to audio and textures — you must install the resource pack and set it to the highest priority in tModLoader settings!
-
-You can download the resource pack here: https://steamcommunity.com/sharedfiles/filedetails/?id=3531989903
+To activate all changes, you need to enable the resource pack and set it to the highest priority in the tModLoader settings!
 
 </details>
 
@@ -55,12 +54,11 @@ You can download the resource pack here: https://steamcommunity.com/sharedfiles/
 11. Мод совместим с мультиплеером
 12. Возможность настроить мод под себя через меню настроек
 13. Аксессуары из серии игр Dark Souls
+14. При смерти вы теряете все души и человечность, на месте смерти будет пятно крови, с помощью которого можно вернуть все назад
 
 <strong>⚠ Внимание ⚠</strong>
 
-Для активации всех изменений, особенно связанных с заменой аудио, текстур требуется установить ресурс пак и поставить ему найвысший приоритет в настройках tmodloader!
-
-Ресурс пак можно скачать по ссылке: https://steamcommunity.com/sharedfiles/filedetails/?id=3531989903
+Для активации всех изменений, требуется включить ресурс пак и поставить ему найвысший приоритет в настройках tModLoader!
 
 </details>
 
@@ -72,14 +70,16 @@ You can download the resource pack here: https://steamcommunity.com/sharedfiles/
 
 <summary>🇷🇺 Русский</summary>
 <ol>
-  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Stats_RU.md">Характеристики персонажа</a></li>
-  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/ReqParam_ParamBonus_RU.md">ReqParam и ParamBonus</a></li>
-  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Dodge_RU.md">Механика уклонения (Рывок)</a></li>
-  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Items_RU.md">Предметы</a></li>
-  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Hotkeys_RU.md">Горячие клавишы</a></li>
-  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Config_RU.md">Настройки мода</a></li>
-  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/ResourcePack_RU.md">Ресурс пак</a></li>
-  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Other_RU.md">Прочее</a></li>
+  <li><a href="wiki/Stats_RU.md">Характеристики персонажа</a></li>
+  <li><a href="wiki/RespecStats_RU.md">Перераспределение характеристик персонажа</a></li>
+  <li><a href="wiki/ReqParam_ParamBonus_RU.md">ReqParam и ParamBonus</a></li>
+  <li><a href="wiki/Dodge_RU.md">Механика уклонения (Рывок)</a></li>
+  <li><a href="wiki/Bloodstain_RU.md">Пятно крови</a></li>
+  <li><a href="wiki/Items_RU.md">Предметы</a></li>
+  <li><a href="wiki/Hotkeys_RU.md">Горячие клавишы</a></li>
+  <li><a href="wiki/Config_RU.md">Настройки мода</a></li>
+  <li><a href="wiki/ResourcePack_RU.md">Ресурс пак</a></li>
+  <li><a href="wiki/Other_RU.md">Прочее</a></li>
 </ol>
 
 </details>
@@ -88,14 +88,16 @@ You can download the resource pack here: https://steamcommunity.com/sharedfiles/
 
 <summary>🇬🇧 English</summary>
 <ol>
-  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Stats_EN.md">Player Stats</a></li>
-  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/ReqParam_ParamBonus_EN.md">ReqParam and ParamBonus</a></li>
-  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Dodge_EN.md">Dodge Mechanic (Dash)</a></li>
-  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Items_EN.md">Items</a></li>
-  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Hotkeys_EN.md">Hotkeys</a></li>
-  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Config_EN.md">Mod Config</a></li>
-  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/ResourcePack_EN.md">Resource Pack</a></li>
-  <li><a href="https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/Other_EN.md">Other</a></li>
+  <li><a href="wiki/Stats_EN.md">Player Stats</a></li>
+  <li><a href="wiki/RespecStats_EN.md">Player Stats Reallocation</a></li>
+  <li><a href="wiki/ReqParam_ParamBonus_EN.md">ReqParam and ParamBonus</a></li>
+  <li><a href="wiki/Dodge_EN.md">Dodge Mechanic (Dash)</a></li>
+  <li><a href="wiki/Bloodstain_EN.md">Bloodstain</a></li>
+  <li><a href="wiki/Items_EN.md">Items</a></li>
+  <li><a href="wiki/Hotkeys_EN.md">Hotkeys</a></li>
+  <li><a href="wiki/Config_EN.md">Mod Config</a></li>
+  <li><a href="wiki/ResourcePack_EN.md">Resource Pack</a></li>
+  <li><a href="wiki/Other_EN.md">Other</a></li>
 </ol>
 
 </details>

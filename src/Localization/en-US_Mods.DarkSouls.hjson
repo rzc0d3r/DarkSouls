@@ -1,4 +1,50 @@
-"Keybinds.Toggle Dark Souls Stats UI.DisplayName": Open / close window with player stats
+UI: {
+	YouDiedUI: {
+		MainText: YOU DIED
+		RespawningText: Respawning in {0} seconds...
+	}
+
+	StatsUI: {
+		Status: Status
+		CheckStatus: Check status
+		LevelUP: Level Up
+		RespecStatsTitle: Respec stats
+		SelectParameterToBoost: Select a parameter to boost
+		RespecStats: Respec stats to {0} level
+		Covenant: Covenant
+		CovenantNone: None
+		Level: Level
+		Souls: Souls
+		ReqSouls: ReqSouls
+		Vitality: Vitality
+		Attunement: Attunement
+		Endurance: Endurance
+		Strength: Strength
+		Dexterity: Dexterity
+		Resistance: Resistance
+		Intelligence: Intelligence
+		Faith: Faith
+		Humanity: Humanity
+		HP: HP
+		Stamina: Stamina
+		Mana: Mana
+		Defense: Defense
+		DebuffsResistance: Debuffs resistance
+		InvincibilityFrames: Invincibility frames
+	}
+}
+
+BloodstainMessage:
+	'''
+	You have retrieved your lost souls and humanity!
+	Souls: +{0}
+	Humanity: +{1}
+	'''
+
+Keybinds: {
+	"Toggle Dark Souls Stats UI.DisplayName": Open / close window with player stats
+	Dash.DisplayName: Dash
+}
 
 Items: {
 	DarkSoulsBonfire: {
@@ -13,6 +59,27 @@ Items: {
 			Increases stamina regeneration rate by {0}%
 			Reduces delay before stamina regeneration by {1}%
 			[c/929292:This ancient ring, engraved with a large green flower, is of unknown origin.]
+			'''
+	}
+
+	FireKeeperSoul: {
+		DisplayName: Fire Keeper Soul
+		Tooltip:
+			'''
+			Using this item initiates stat redistribution
+			[c/929292:Soul of a long-lost Fire Keeper.]
+			[c/929292:Each Fire Keeper is a corporeal manifestation of her bonfire, and a draw]
+			[c/929292:for the humanity which is offered to her.]
+			'''
+	}
+
+	Humanity: {
+		DisplayName: Humanity
+		Tooltip:
+			'''
+			Use to gain 1 humanity
+			[c/929292:This black sprite is called humanity, but little is known about its true nature.]
+			[c/929292:If the soul is the source of all life, then what distinguishes the humanity we hold within ourselves?]
 			'''
 	}
 }
@@ -60,4 +127,22 @@ Configs: {
 			Compatibility: Compatibility
 		}
 	}
+
+	ClientConfig: {
+		DisplayName: Client Config
+		Headers.ResourcePack: Resource Pack
+
+		DisableOverrideHurtSounds: {
+			Label: Disable Override Hurt Sounds
+			Tooltip:
+				'''
+				Disables the replacement of default hurt sounds with sounds from Dark Souls I.
+				After changing this setting, all enabled mods will be reloaded.
+				You MUST then DISABLE and ENABLE the resource pack for this mod for the changes to take effect!!!
+				'''
+		}
+	}
 }
+
+Projectiles.BloodstainProjectile.DisplayName: Bloodstain Projectile
+Tiles.DarkSoulsBonfire.DisplayName: Dark Souls Bonfire

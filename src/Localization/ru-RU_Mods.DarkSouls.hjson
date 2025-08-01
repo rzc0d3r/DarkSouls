@@ -1,4 +1,50 @@
-"Keybinds.Toggle Dark Souls Stats UI.DisplayName": Открыть / закрыть окно с характеристиками персонажа
+UI: {
+	YouDiedUI: {
+		MainText: ВЫ ПОГИБЛИ
+		RespawningText: Возрождение через {0} секунд...
+	}
+
+	StatsUI: {
+		Status: Статус
+		CheckStatus: Просмотр статуса
+		LevelUP: Новый уровень
+		RespecStatsTitle: Перераспределение
+		SelectParameterToBoost: Укажите параметры
+		RespecStats: Распределитесь до {0} ур.
+		Covenant: Орден
+		CovenantNone: Нет
+		Level: Уровень
+		Souls: Души
+		ReqSouls: Треб. душ
+		Vitality: Здоровье
+		Attunement: Ученость
+		Endurance: Выносливость
+		Strength: Сила
+		Dexterity: Ловкость
+		Resistance: Сопротив.
+		Intelligence: Интеллект
+		Faith: Вера
+		Humanity: Человечность
+		HP: Здоровье
+		Stamina: Стойкость
+		Mana: Мана
+		Defense: Защита
+		DebuffsResistance: Сопр. к дебаффам
+		InvincibilityFrames: Кадры неуязвимости
+	}
+}
+
+BloodstainMessage:
+	'''
+	Вы вернули потерянные души и человечность!
+	Души: +{0}
+	Человечность: +{1}
+	'''
+
+Keybinds: {
+	"Toggle Dark Souls Stats UI.DisplayName": Открыть / закрыть окно с характеристиками персонажа
+	Dash.DisplayName: Рывок
+}
 
 Items: {
 	DarkSoulsBonfire: {
@@ -13,6 +59,27 @@ Items: {
 			Увеличивает скорость восстановление выносливости на {0}%
 			Снижает задержку перед восстановление выносливости на {1}%
 			[c/929292:На этом древнем кольце, происхождение которого неизвестно, выгравирован большой зеленый цветок.]
+			'''
+	}
+
+	FireKeeperSoul: {
+		DisplayName: Душа Хранительницы Огня
+		Tooltip:
+			'''
+			При использовании запускает перераспределение характеристик
+			[c/929292:Душа давно потерянной Хранительницы Огня.]
+			[c/929292:Каждая Хранительница Огня олицетворяет свой костер и хранит человечность,]
+			[c/929292:которую ей преподносят в дар.]
+			'''
+	}
+
+	Humanity: {
+		DisplayName: Человечность
+		Tooltip:
+			'''
+			Даёт 1 единицу человечности
+			[c/929292:Этот чёрный призрак называется человечностью, но о его природе почти ничего не известно.]
+			[c/929292:Если душа является источником любой жизни, в чём суть человечности, которая отличает нас?]
 			'''
 	}
 }
@@ -61,4 +128,22 @@ Configs: {
 			Compatibility: Совместимость
 		}
 	}
+
+	ClientConfig: {
+		DisplayName: Клиентские настройки
+		Headers.ResourcePack: Ресурс пак
+
+		DisableOverrideHurtSounds: {
+			Label: Отключить замену звуков получения урона
+			Tooltip:
+				'''
+				Отключает замену стандартных звуков получения урона на звуки из Dark Souls I.
+				После изменения состояния этой настройки, все включеные моды будут перегружены.
+				После этого вам СЛЕДУЕТ ВЫКЛЮЧИТЬ И ВКЛЮЧИТЬ РЕСУРС ПАК ДЛЯ ЭТОГО МОДА чтобы изменения были внесены!!!
+				'''
+		}
+	}
 }
+
+// Projectiles.BloodstainProjectile.DisplayName: Bloodstain Projectile
+Tiles.DarkSoulsBonfire.DisplayName: Dark Souls Bonfire
