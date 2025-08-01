@@ -38,7 +38,7 @@
    Description: Using this item initiates stat redistribution
              Soul of a long-lost Fire Keeper.
              Each Fire Keeper is a corporeal manifestation of her bonfire, and a draw for the humanity which is offered to her.
-   Receipt: Purchased from the Dryad in Hardmode
+   Receipt: Purchased from the Dryad in Hardmode (5 Platinum Coins)
 
 2. Humanity
    Description: Use to gain 1 humanity
