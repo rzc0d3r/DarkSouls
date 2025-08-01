@@ -124,5 +124,5 @@
 
 #### Окно просмотра текущих характеристик персонажа (статус)
 
-![](https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/images/Menu_Status.jpg)
+![](images/Menu_Status_RU.jpg)
  
