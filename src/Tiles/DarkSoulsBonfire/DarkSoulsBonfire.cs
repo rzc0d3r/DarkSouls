@@ -19,9 +19,11 @@ namespace DarkSouls.Tiles.DarkSoulsBonfire
             Main.tileWaterDeath[Type] = true;
             Main.tileLavaDeath[Type] = true;
 
-            AnimationFrameHeight = 56;
+            AnimationFrameHeight = 52;
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
+            TileObjectData.newTile.CoordinateHeights = [16, 16, 20];
+            TileObjectData.newTile.DrawYOffset = 2;
             TileObjectData.addTile(Type);
 
             AddMapEntry(new Color(200, 100, 0), Language.GetText("Mods.DarkSouls.Tiles.DarkSoulsBonfire.DisplayName"));
@@ -62,14 +64,14 @@ namespace DarkSouls.Tiles.DarkSoulsBonfire
             if (closer)
                 return;
 
-            if (Main.tile[i, j].TileFrameY < 56)
+            if (Main.tile[i, j].TileFrameY < 52)
                 Main.SceneMetrics.HasCampfire = true;
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
             Tile tile = Main.tile[i, j];
-            if (tile.TileFrameY < 56)
+            if (tile.TileFrameY < 52)
             {
                 float pulse = Main.rand.NextFloat(0.05f, 0.15f);
                 pulse += (270 - Main.mouseTextColor) / 700f;
