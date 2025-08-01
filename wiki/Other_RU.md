@@ -8,8 +8,8 @@
 6. При убийстве враждебного существа вы получаете души с характерным звуком из Dark Souls
 7. При смерти персонажа на весь экран выводится окно похожее на экрана смерти Dark Souls (звук экрана смерти также сюда входит):
 
-![](https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/images/DeathScreen.jpg)
+![](wiki/images/DeathScreen_RU.jpg)
 
 8. В главное меню игры добавлен тема меню **Dark Souls Style**, при выборе этой темы будет воспроизведен звук загрузки меню Dark Souls, а также на фоне будет играть композиция **A Moment's Peace**:
 
-![](https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/images/MenuTheme.jpg)
+![](wiki/images/MenuTheme.jpg)
