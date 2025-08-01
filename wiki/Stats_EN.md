@@ -23,7 +23,7 @@ All of the listed stats can be leveled up through the **Level Up Menu**, which i
 
 #### Level Up Menu
 
-![](https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/images/Menu_LevelUP.jpg)
+![](images/Menu_LevelUP.jpg)
 
 This screenshot shows the level-up window of a newly created player.
 
@@ -136,4 +136,4 @@ If you don’t click on the bonfire, but instead press the hotkey that opens/clo
 
 #### Status Menu (Current Player Stats)
 
-![](https://github.com/rzc0d3r/DarkSouls/blob/main/wiki/images/Menu_Status.jpg)
+![](wiki/images/Menu_Status.jpg)
