@@ -1,8 +1,8 @@
 # More About the Resource Pack for This Mod
 
-To activate all changes, you must install the resource pack and set it to the **highest priority** in the tModLoader settings!
+To activate all changes, you need to enable the resource pack and set it to the highest priority in the tModLoader settings!!!
 
-Resource Pack link: https://steamcommunity.com/sharedfiles/filedetails/?id=3531989903
+Starting from version ```0.0.5```, the mod installs the resource pack automatically, all you need to do is enable it.
 
 ---
 
