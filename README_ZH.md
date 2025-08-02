@@ -6,7 +6,7 @@
 
 中文 | [English] (README.md)
 
-<img src="icon_workshop.png" alt="Icon" style="max-width: 100%;"/>
+<img src="src/icon_workshop.png" alt="Icon" style="max-width: 100%;"/>
 
 </div>
 
@@ -50,6 +50,7 @@
   <li><a href="wiki/ResourcePack_ZH.md">资源包</a></li>
   <li><a href="wiki/Other_ZH.md">其他</a></li>
 </ol>
+
 
 
 
