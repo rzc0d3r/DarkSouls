@@ -1,0 +1,148 @@
+UI: {
+	YouDiedUI: {
+		MainText: YOU DIED
+		RespawningText: Respawning in {0} seconds...
+	}
+
+	StatsUI: {
+		Status: 角色属性
+		CheckStatus: 确认能力属性
+		LevelUP: 升级
+		RespecStatsTitle: 重置属性
+		SelectParameterToBoost: 选择要提升的属性
+		RespecStats: 将属性重置为 {0} 级
+		Covenant: 誓约
+		CovenantNone: 无
+		Level: 等级
+		Souls: 持有灵魂
+		ReqSouls: 必须灵魂数
+		Vitality: 体力
+		Attunement: 记忆力
+		Endurance: 持久力
+		Strength: 力气
+		Dexterity: 敏捷
+		Resistance: 耐力
+		Intelligence: 智力
+		Faith: 信仰
+		Humanity: 人性
+		HP: 血量
+		Stamina: 精力
+		Mana: 魔法值
+		Defense: 防御
+		DebuffsResistance: 减益抗性
+		InvincibilityFrames: 无敌帧
+	}
+}
+
+BloodstainMessage:
+	'''
+	你已取回失落的灵魂与人性！
+	魂: +{0}
+	人性: +{1}
+	'''
+
+Keybinds: {
+	"Toggle Dark Souls Stats UI.DisplayName": 打开/关闭属性窗口
+	Dash.DisplayName: 冲刺
+}
+
+Items: {
+	DarkSoulsBonfire: {
+		DisplayName: 黑暗之魂篝火
+		Tooltip: 在篝火附近右键点击以打开升级菜单
+	}
+
+	CloranthyRing: {
+		DisplayName: 绿花戒指
+		Tooltip:
+			'''
+			耐力回复速度提升 {0}%
+			耐力回复延迟减少 {1}%
+			[c/929292:这枚古老的戒指上雕刻着一朵巨大的绿色花朵，其来源不明]
+			'''
+	}
+
+	FireKeeperSoul: {
+		DisplayName: 防火女之魂
+		Tooltip:
+			'''
+			使用此物品可进行属性重分配
+			[c/929292:一位早已逝去的火之女祭司之灵魂]
+			[c/929292:每一位火之女祭司都是其篝火的实体化身]
+			[c/929292:吸引着人类向她献上人性]
+			'''
+	}
+
+	Humanity: {
+		DisplayName: 人性
+		Tooltip:
+			'''
+			获得1点人性
+			[c/929292:这种黑色精灵被称为人性，但其真正的本质却鲜为人知]
+			[c/929292:如果灵魂是一切生命的源泉，那么我们自身所拥有的人性能否区别于灵魂？]
+			'''
+	}
+}
+
+ResourceDisplaySets.CustomResourceBars.DisplayName: 黑暗之魂
+
+Configs: {
+	ServerConfig: {
+		DisplayName: 服务器和单人设置
+
+		SoulsGainMultiplierPercent: {
+			Label: 获得的魂（百分比）
+			Tooltip:
+				'''
+				设置击杀敌人获得的魂
+				默认 100%
+				范围: 0% - 500%
+				'''
+		}
+
+		LevelUpCostMultiplierPercent: {
+			Label: 升级所需要的魂（百分比）
+			Tooltip:
+				'''
+				设置升级所需的魂
+				默认 100%
+				范围: 0% - 500%
+				'''
+		}
+
+		DisableVanillaDashLock: {
+			Label: 禁用原版冲刺锁定
+			Tooltip:
+				'''
+				如果启用，此模组将不再阻止《泰拉瑞亚》原版中存在的所有类型的冲刺功能
+				受影响的物品示例：克苏鲁之盾、分趾厚底袜、忍者大师装备、耀斑盔甲、水晶刺客套装
+				所有使用原版冲刺相关变量的物品也将保持不受影响（即冲刺功能正常）
+				如果其他模组中的冲刺功能失效了，启用此选项可能会有所帮助
+				然而，启用此选项可能导致来自不同模组的冲刺功能相互重叠，从而引发不可预知的行为
+				'''
+		}
+
+		Headers: {
+			Balance: 平衡
+			Compatibility: 兼容性
+		}
+	}
+
+	ClientConfig: {
+		DisplayName: 客户端配置
+		Headers.ResourcePack: 资源包
+
+		DisableOverrideHurtSounds: {
+			Label: 禁用受伤音效
+			Tooltip:
+				'''
+				禁用替换默认的受伤音效（这些音效原本会被《黑暗之魂1》中的音效替代）。
+				更改此设置后，所有已启用的模组将重新加载。
+				您必须随后禁用并重新启用此模组的资源包，更改才能生效！！！
+				'''
+		}
+	}
+}
+
+Projectiles.BloodstainProjectile.DisplayName: 血迹投射物
+Tiles.DarkSoulsBonfire.DisplayName: 黑暗之魂篝火
