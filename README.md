@@ -2,7 +2,9 @@
 
 # Dark Souls  
 🇬🇧 Content and mechanics from the Dark Souls trilogy of games for Terraria  
-🇷🇺 Контент и механики из трилогии игр Dark Souls для Terraria  
+🇷🇺 Контент и механики из трилогии игр Dark Souls для Terraria
+
+[中文](README_ZH.md) | English
 
 <img src="src/icon_workshop.png" alt="Icon" style="max-width: 100%;"/>
 
@@ -101,3 +103,4 @@ To activate all changes, you need to enable the resource pack and set it to the 
 </ol>
 
 </details>
+
