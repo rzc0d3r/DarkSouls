@@ -6,7 +6,7 @@
 
 [中文](README_ZH.md) | English
 
-<img src="icon_workshop.png" alt="Icon" style="max-width: 100%;"/>
+<img src="src/icon_workshop.png" alt="Icon" style="max-width: 100%;"/>
 
 </div>
 
@@ -103,3 +103,4 @@ To activate all changes, you need to enable the resource pack and set it to the 
 </ol>
 
 </details>
+
