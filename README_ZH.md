@@ -39,7 +39,7 @@
 ### 模组各部分的详细说明
 
 <ol>
-  <li><a href="wiki/Stats_ZH.md">玩家状态</a></li>
+  <li><a href="wiki/Stats_ZH.md">玩家属性</a></li>
   <li><a href="wiki/RespecStats_ZH.md">属性加点重置</a></li>
   <li><a href="wiki/ReqParam_ParamBonus_ZH.md">需求能力值与属性补正</a></li>
   <li><a href="wiki/Dodge_ZH.md">闪避机制（冲刺）</a></li>
@@ -50,6 +50,7 @@
   <li><a href="wiki/ResourcePack_ZH.md">资源包</a></li>
   <li><a href="wiki/Other_ZH.md">其他</a></li>
 </ol>
+
 
 
 
