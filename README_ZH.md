@@ -4,7 +4,7 @@
 
 将《黑暗之魂》系列游戏的内容和机制融入《泰拉瑞亚》
 
-中文 | [English] (README.md)
+中文 | [English](README.md)
 
 <img src="src/icon_workshop.png" alt="Icon" style="max-width: 100%;"/>
 
@@ -50,6 +50,7 @@
   <li><a href="wiki/ResourcePack_ZH.md">资源包</a></li>
   <li><a href="wiki/Other_ZH.md">其他</a></li>
 </ol>
+
 
 
 
