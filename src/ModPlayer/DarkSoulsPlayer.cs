@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Collections.Generic;
 
@@ -195,7 +195,7 @@ namespace DarkSouls
             #region Dash Handler
             if (Main.myPlayer == Player.whoAmI)
             {
-                customDashKey = DarkSouls.DashKey.GetAssignedKeys().Count > 0 && customDashKey && DarkSouls.DashKey.GetAssignedKeys()[0] != "Double-tap A or D";
+                customDashKey = DarkSouls.DashKey.GetAssignedKeys().Count > 0 && DarkSouls.DashKey.GetAssignedKeys()[0] != "Double-tap A or D";
                 if (customDashKey)
                 {
                     if (DarkSouls.DashKey.JustPressed)
