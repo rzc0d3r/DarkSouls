@@ -9,6 +9,7 @@ In addition, most weapons and tools scale with your stats, granting bonus damage
 
 ### Scaling Grades
 
+| №  | Scaling Grade    | Multiplier  |
 |----|------------------|-------------|
 | 1  | S                | 0.85 (85%)  |
 | 2  | A                | 0.65 (65%)  | 
