@@ -54,8 +54,7 @@ ScalingSystem: {
 Keybinds: {
 	"Toggle Dark Souls Stats UI.DisplayName": 打开/关闭属性窗口
 	Dash.DisplayName: 冲刺
-	"Touch Bloodstain.DisplayName": 触碰血迹
-	// "Touch the bloodstain.DisplayName": Touch the bloodstain
+	"Touch the bloodstain.DisplayName": 触碰血迹
 }
 
 Items: {

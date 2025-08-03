@@ -54,7 +54,6 @@ ScalingSystem: {
 Keybinds: {
 	"Toggle Dark Souls Stats UI.DisplayName": Open / close window with player stats
 	Dash.DisplayName: Dash
-	"Touch Bloodstain.DisplayName": Touch the bloodstain
 	"Touch the bloodstain.DisplayName": Touch the bloodstain
 }
 

@@ -54,8 +54,7 @@ ScalingSystem: {
 Keybinds: {
 	"Toggle Dark Souls Stats UI.DisplayName": Открыть / закрыть окно с характеристиками персонажа
 	Dash.DisplayName: Рывок
-	"Touch Bloodstain.DisplayName": Прикоснуться к пятну крови
-	// "Touch the bloodstain.DisplayName": Touch the bloodstain
+	"Touch the bloodstain.DisplayName": Прикоснуться к пятну крови
 }
 
 Items: {
