@@ -40,10 +40,22 @@ BloodstainMessage:
 	Souls: +{0}
 	Humanity: +{1}
 	'''
+BloodstainErrorMessage: The bloodstain is out of reach!
+
+ScalingSystem: {
+	ReqParamDisplayName: ReqParam
+	ParamBonusDisplayName: ParamBonus
+	StrengthDisplayName: Strength
+	DexterityDisplayName: Dexterity
+	IntelligenceDisplayName: Intelligence
+	FaithDisplayName: Faith
+}
 
 Keybinds: {
 	"Toggle Dark Souls Stats UI.DisplayName": Open / close window with player stats
 	Dash.DisplayName: Dash
+	"Touch Bloodstain.DisplayName": Touch the bloodstain
+	"Touch the bloodstain.DisplayName": Touch the bloodstain
 }
 
 Items: {
@@ -136,9 +148,33 @@ Configs: {
 			Label: Disable Override Hurt Sounds
 			Tooltip:
 				'''
-				Disables the replacement of default hurt sounds with sounds from Dark Souls I.
-				After changing this setting, all enabled mods will be reloaded.
-				You MUST then DISABLE and ENABLE the resource pack for this mod for the changes to take effect!!!
+				Disables the replacement of default damage sounds with Dark Souls I sounds.
+
+				DISABLE THE RESOURCE PACK BEFORE CHANGING THIS SETTING, OR YOU WILL GET AN ERROR!!!
+				After reloading, ENABLE THE RESOURCE PACK to apply the changes!
+				'''
+		}
+
+		DisableOverrideMusic: {
+			Label: Disable Music Replacement
+			Tooltip:
+				'''
+				Disables the replacement of default music with tracks from Dark Souls I (Dark Souls with Artorias of the Abyss Edition Original Soundtrack).
+
+				DISABLE THE RESOURCE PACK BEFORE CHANGING THIS SETTING, OR YOU WILL GET AN ERROR!!!
+				After reloading, ENABLE THE RESOURCE PACK to apply the changes!
+
+				Track list:
+				- Boss1 (Music_5) - Taurus Demon
+				- Boss2 (Music_12) - Four Kings
+				- Boss3 (Music_13) - Gravelord Nito
+				- Boss4 (Music_17) - Iron Golem
+				- Boss5 (Music_25) - Chaos Witch Quelaag
+				- Plantera (Music_24) - Kalameet
+				- Moon Lord (Music_38) - Gwyn, Lord of Cinder
+				- Empress of Light (Music_57) - Gwynevere, Princess of Sunlight
+				- Duke Fishron (Music_58) - Ornstein & Smough
+				- Titles (Music_89) - Nameless Song
 				'''
 		}
 	}

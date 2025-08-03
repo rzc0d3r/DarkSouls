@@ -40,10 +40,22 @@ BloodstainMessage:
 	Души: +{0}
 	Человечность: +{1}
 	'''
+BloodstainErrorMessage: Пятно крови вне зоны досягаемости!
+
+ScalingSystem: {
+	ReqParamDisplayName: Треб. парам-ы
+	ParamBonusDisplayName: Бонус к парам-м
+	StrengthDisplayName: Сила
+	DexterityDisplayName: Ловкость
+	IntelligenceDisplayName: Интеллект
+	FaithDisplayName: Вера
+}
 
 Keybinds: {
 	"Toggle Dark Souls Stats UI.DisplayName": Открыть / закрыть окно с характеристиками персонажа
 	Dash.DisplayName: Рывок
+	"Touch Bloodstain.DisplayName": Прикоснуться к пятну крови
+	// "Touch the bloodstain.DisplayName": Touch the bloodstain
 }
 
 Items: {
@@ -138,8 +150,32 @@ Configs: {
 			Tooltip:
 				'''
 				Отключает замену стандартных звуков получения урона на звуки из Dark Souls I.
-				После изменения состояния этой настройки, все включеные моды будут перегружены.
-				После этого вам СЛЕДУЕТ ВЫКЛЮЧИТЬ И ВКЛЮЧИТЬ РЕСУРС ПАК ДЛЯ ЭТОГО МОДА чтобы изменения были внесены!!!
+
+				ПЕРЕД ИЗМЕНЕНИЯМ ЭТОЙ НАСТРОЙКИ ВЫКЛЮЧИТЕ РЕСУРС ПАК, ИНАЧЕ ВЫ ПОЛУЧИТЕ ОШИБКУ!!!
+				После перезагрузки ВКЛЮЧИТЬ РЕСУРС ПАК чтобы изменения были внесены!!!
+				'''
+		}
+
+		DisableOverrideMusic: {
+			Label: Отключить замену музыки
+			Tooltip:
+				'''
+				Отключает замену стандартной музыки на саундтрек Dark Souls I (Dark Souls with Artorias of the Abyss Edition Original Soundtrack).
+
+				ПЕРЕД ИЗМЕНЕНИЯМ ЭТОЙ НАСТРОЙКИ ВЫКЛЮЧИТЕ РЕСУРС ПАК, ИНАЧЕ ВЫ ПОЛУЧИТЕ ОШИБКУ!!!
+				После перезагрузки ВКЛЮЧИТЬ РЕСУРС ПАК чтобы изменения были внесены!!!
+
+				Список композиций:
+				- Boss1 (Music_5) - Taurus Demon
+				- Boss2 (Music_12) - Four Kings
+				- Boss3 (Music_13) - Gravelord Nito
+				- Boss4 (Music_17) - Iron Golem
+				- Boss5 (Music_25) - Chaos Witch Quelaag
+				- Plantera (Music_24) - Kalameet
+				- Moon Lord (Music_38) - Gwyn, Lord of Cinder
+				- Empress of Light (Music_57) - Gwynevere, Princess of Sunlight
+				- Duke Fishron (Music_58) - Ornstein & Smough
+				- Titles (Music_89) - Nameless Song
 				'''
 		}
 	}

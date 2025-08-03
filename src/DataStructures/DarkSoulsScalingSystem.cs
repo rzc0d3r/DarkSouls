@@ -10,6 +10,14 @@ namespace DarkSouls.DataStructures
 {
     public static class DarkSoulsScalingSystem
     {
+        // Set by LocalizationUpdater
+        public static string ReqParamDisplayName;
+        public static string ParamBonusDisplayName;
+        public static string StrengthDisplayName;
+        public static string DexterityDisplayName;
+        public static string IntelligenceDisplayName;
+        public static string FaithDisplayName;
+
         public enum ScalingGrade
         {
             None = 0,
@@ -60,16 +68,16 @@ namespace DarkSouls.DataStructures
             {
                 DarkSoulsPlayer dsPlayer = Main.LocalPlayer.GetModPlayer<DarkSoulsPlayer>();
                 string text = string.Empty;
-                string strengthText = dsPlayer.dsStrength >= ReqStrength ? $"Strength: [{DodgerBlueColorTooltip}:{ReqStrength}]" : $"Strength: [{CrimsonColorTooltip}:{ReqStrength}]";
-                string dexterityText = dsPlayer.dsDexterity >= ReqDexterity ? $"Dexterity: [{DodgerBlueColorTooltip}:{ReqDexterity}]" : $"Dexterity: [{CrimsonColorTooltip}:{ReqDexterity}]";
-                string intelligenceText = dsPlayer.dsIntelligence >= ReqIntelligence ? $"Intelligence: [{DodgerBlueColorTooltip}:{ReqIntelligence}]" : $"Intelligence: [{CrimsonColorTooltip}:{ReqIntelligence}]";
-                string faithText = dsPlayer.dsFaith >= ReqFaith ? $"Faith: [{DodgerBlueColorTooltip}:{ReqFaith}]" : $"Faith: [{CrimsonColorTooltip}:{ReqFaith}]";
+                string strengthText = dsPlayer.dsStrength >= ReqStrength ? $"{StrengthDisplayName}: [{DodgerBlueColorTooltip}:{ReqStrength}]" : $"{StrengthDisplayName}: [{CrimsonColorTooltip}:{ReqStrength}]";
+                string dexterityText = dsPlayer.dsDexterity >= ReqDexterity ? $"{DexterityDisplayName}: [{DodgerBlueColorTooltip}:{ReqDexterity}]" : $"{DexterityDisplayName}: [{CrimsonColorTooltip}:{ReqDexterity}]";
+                string intelligenceText = dsPlayer.dsIntelligence >= ReqIntelligence ? $"{IntelligenceDisplayName}: [{DodgerBlueColorTooltip}:{ReqIntelligence}]" : $"{IntelligenceDisplayName}: [{CrimsonColorTooltip}:{ReqIntelligence}]";
+                string faithText = dsPlayer.dsFaith >= ReqFaith ? $"{FaithDisplayName}: [{DodgerBlueColorTooltip}:{ReqFaith}]" : $"{FaithDisplayName}: [{CrimsonColorTooltip}:{ReqFaith}]";
 
-                text = $"ReqParam:\n  {strengthText}, {dexterityText}, {intelligenceText}, {faithText}\n";
-                text += $"ParamBonus:\n  Strength: {ScalingGradeToString(StrengthScalingGrade)}, " +
-                        $"Dexterity: {ScalingGradeToString(DexterityScalingGrade)}, " +
-                        $"Intelligence: {ScalingGradeToString(IntelligenceScalingGrade)}, " +
-                        $"Faith: {ScalingGradeToString(FaithScalingGrade)}";
+                text = $"{ReqParamDisplayName}:\n  {strengthText}, {dexterityText}, {intelligenceText}, {faithText}\n";
+                text += $"{ParamBonusDisplayName}:\n  {StrengthDisplayName}: {ScalingGradeToString(StrengthScalingGrade)}, " +
+                        $"{DexterityDisplayName}: {ScalingGradeToString(DexterityScalingGrade)}, " +
+                        $"{IntelligenceDisplayName}: {ScalingGradeToString(IntelligenceScalingGrade)}, " +
+                        $"{FaithDisplayName}: {ScalingGradeToString(FaithScalingGrade)}";
                 return text;
             }
         }
@@ -671,11 +679,11 @@ namespace DarkSouls.DataStructures
             return level switch
             {
                 ScalingGrade.S => 0.85f,
-                ScalingGrade.A => 0.5f,
-                ScalingGrade.B => 0.3f,
-                ScalingGrade.C => 0.2f,
-                ScalingGrade.D => 0.1f,
-                ScalingGrade.E => 0.05f,
+                ScalingGrade.A => 0.65f,
+                ScalingGrade.B => 0.45f,
+                ScalingGrade.C => 0.35f,
+                ScalingGrade.D => 0.25f,
+                ScalingGrade.E => 0.15f,
                 _ => 0f,
             };
         }

@@ -12,15 +12,15 @@ namespace DarkSouls.Items.Consumables
         
         public override void SetDefaults()
         {
-            Item.width = 40;
-            Item.height = 40;
+            Item.width = 54;
+            Item.height = 56;
             Item.rare = ItemRarityID.LightRed;
             Item.value = Item.buyPrice(5, 0, 0, 0);
             Item.consumable = true;
             Item.maxStack = Item.CommonMaxStack;
             Item.useStyle = ItemUseStyleID.HoldUp;
-            Item.useTime = 30;
-            Item.useAnimation = 30;
+            Item.useTime = 10;
+            Item.useAnimation = 15;
             Item.UseSound = SoundID.Item92;
         }
 
