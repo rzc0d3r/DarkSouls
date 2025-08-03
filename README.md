@@ -32,6 +32,7 @@
 12. Ability to customize the mod through the settings menu
 13. Accessories from the Dark Souls game series
 14. Upon death, you lose all your souls and humanity. A bloodstain will appear at the place of death, which you can use to recover everything
+15. Soundtrack from Dark Souls I (Dark Souls with Artorias of the Abyss Edition Original Soundtrack)
 
 <strong>⚠ Attention ⚠</strong>  
 
@@ -57,6 +58,7 @@ To activate all changes, you need to enable the resource pack and set it to the 
 12. Возможность настроить мод под себя через меню настроек
 13. Аксессуары из серии игр Dark Souls
 14. При смерти вы теряете все души и человечность, на месте смерти будет пятно крови, с помощью которого можно вернуть все назад
+15. Саундтрек из Dark Souls I (Dark Souls with Artorias of the Abyss Edition Original Soundtrack)
 
 <strong>⚠ Внимание ⚠</strong>
 
@@ -103,4 +105,5 @@ To activate all changes, you need to enable the resource pack and set it to the 
 </ol>
 
 </details>
+
 
