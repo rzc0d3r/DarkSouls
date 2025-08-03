@@ -14,6 +14,7 @@
 | 6  | Resistance       | Increases damage reduction and invincibility frames when dashing (similar to Adaptability from Dark Souls 2); reduces debuff duration |
 | 7  | Intelligence     | Increases Intelligence-based damage and allows wielding weapons that require Intelligence |
 | 8  | Faith            | Increases Faith-based damage and allows wielding weapons that require Faith |
+| 9  | Humanity         | Increases the player's luck |
 
 ---
 
@@ -45,9 +46,9 @@ After distributing points, click **Accept** (the button will light up if changes
 
 **Note:** If you walk away from the bonfire or press the hotkey that opens/closes the level-up window, all changes will be discarded!
 
-All stats can be leveled from 1 to 99.
+All stats, except humanity, can be leveled from 1 to 99.
 
-Each stat has its own **soft caps** that reduce the efficiency of further leveling.
+Each stat, except humanity, has its own **soft caps** that reduce the efficiency of further leveling.
 
 ---
 
@@ -128,6 +129,12 @@ Each stat has its own **soft caps** that reduce the efficiency of further leveli
 | 1–51        | +1.7% Potential                | 85% Potential              |
 | 52–99       | +0.208% Potential              | 100% Potential             |
 
+#### Humanity
+
+| Amount of Humanity | Luck Increase per 1 Humanity | Maximum Value at the End of the Range |
+|--------------------|------------------------------|--------------------------------------|
+| 1–30               | +0.01 Luck                   | 0.3 Luck                             |
+| 31–99              | +0 Luck                     | 0.3 Luck                             |
 ---
 
 ### How to View Player Status
