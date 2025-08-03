@@ -26,6 +26,6 @@ namespace DarkSouls.Common.ItemDropRules
 
         public bool CanShowItemDropInUI() => true;
 
-        public string GetConditionDescription() => Language.GetTextValue("s");
+        public string GetConditionDescription() => Language.GetTextValue("Mods.DarkSouls.Conditionals.DropsFromNormalEnemiesOnlyConditionDescription");
     }
 }

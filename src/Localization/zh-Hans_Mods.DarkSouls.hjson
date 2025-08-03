@@ -51,6 +51,8 @@ ScalingSystem: {
 	FaithDisplayName: 信仰
 }
 
+Conditionals.DropsFromNormalEnemiesOnlyConditionDescription: 掉落于非Boss且不是通过雕像召唤的敌对怪物
+
 Keybinds: {
 	"Toggle Dark Souls Stats UI.DisplayName": 打开/关闭属性窗口
 	Dash.DisplayName: 冲刺
@@ -141,7 +143,11 @@ Configs: {
 
 	ClientConfig: {
 		DisplayName: 客户端配置
-		Headers.ResourcePack: 资源包
+
+		Headers: {
+			ResourcePack: 资源包
+			Other: 其他
+		}
 
 		DisableOverrideHurtSounds: {
 			Label: 禁用受伤音效
@@ -175,6 +181,16 @@ Configs: {
 				- 渔人公爵 (Music_58) - Ornstein & Smough
 				- 标题 (Music_89) - Nameless Song
 				'''
+		}
+
+		DisableDeathScreen: {
+			Label: 禁用死亡画面
+			Tooltip: 禁用死亡画面（YOU DIED）
+		}
+
+		DisableDash: {
+			Label: 禁用冲刺
+			Tooltip: 禁用带有无敌帧的冲刺
 		}
 	}
 }

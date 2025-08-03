@@ -644,7 +644,7 @@ namespace DarkSouls.DataStructures
             {ItemID.VampireFrogStaff, new WeaponParams(1, 1, 10, 0, faithScalingGrade: ScalingGrade.D) },
             {ItemID.VampireKnives, new WeaponParams(25, 10, 0, 0, ScalingGrade.A, ScalingGrade.D, saturation: 50) },
             {ItemID.VenomStaff, new WeaponParams(2, 2, 24, 0, intelligenceScalingGrade: ScalingGrade.C) },
-            {ItemID.VenusMagnum, new WeaponParams(2, 2, 27, 0, dexterityScalingGrade: ScalingGrade.C) },
+            {ItemID.VenusMagnum, new WeaponParams(2, 27, 0, 0, dexterityScalingGrade: ScalingGrade.C) },
             {ItemID.Vilethorn, new WeaponParams(1, 1, 8, 0, intelligenceScalingGrade: ScalingGrade.E) },
             {ItemID.FieryGreatsword, new WeaponParams(12, 3, 0, 0, ScalingGrade.C, ScalingGrade.D) },
             {ItemID.WaffleIron, new WeaponParams(15, 10, 0, 0, ScalingGrade.S, ScalingGrade.D) },

@@ -244,7 +244,7 @@ namespace DarkSouls
         public override void PreUpdateMovement()
         {
             #region Dash with invincibility frames
-            if (!Player.mount.Active && dashDir != -1 && dashDelay == 0 && currentStamina >= 30f)
+            if (!Player.mount.Active && dashDir != -1 && dashDelay == 0 && currentStamina >= 30f && !ClientConfig.Instance.DisableDash)
             {
                 Vector2 newVelocity = Player.velocity;
 
@@ -572,8 +572,11 @@ namespace DarkSouls
                         SoundEngine.PlaySound(DarkSouls.dsFemaleDeadSound);
                 }
 
-                ModContent.GetInstance<DarkSoulsYouDiedUISystem>().ShowUI();
-                SoundEngine.PlaySound(DarkSouls.dsThruDeath);
+                if (!ClientConfig.Instance.DisableDeathScreen)
+                {
+                    ModContent.GetInstance<DarkSoulsYouDiedUISystem>().ShowUI();
+                    SoundEngine.PlaySound(DarkSouls.dsThruDeath);
+                }
 
                 currentStamina = maxStamina;
 

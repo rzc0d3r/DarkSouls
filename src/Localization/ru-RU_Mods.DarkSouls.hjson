@@ -51,6 +51,8 @@ ScalingSystem: {
 	FaithDisplayName: Вера
 }
 
+Conditionals.DropsFromNormalEnemiesOnlyConditionDescription: Выпадает с враждебных мобов, которые не являются боссами и не были призваны с помощью статуи
+
 Keybinds: {
 	"Toggle Dark Souls Stats UI.DisplayName": Открыть / закрыть окно с характеристиками персонажа
 	Dash.DisplayName: Рывок
@@ -142,7 +144,11 @@ Configs: {
 
 	ClientConfig: {
 		DisplayName: Клиентские настройки
-		Headers.ResourcePack: Ресурс пак
+
+		Headers: {
+			ResourcePack: Ресурс пак
+			Other: Другое
+		}
 
 		DisableOverrideHurtSounds: {
 			Label: Отключить замену звуков получения урона
@@ -176,6 +182,16 @@ Configs: {
 				- Duke Fishron (Music_58) - Ornstein & Smough
 				- Titles (Music_89) - Nameless Song
 				'''
+		}
+
+		DisableDeathScreen: {
+			Label: Отключить экран смерти
+			Tooltip: Отключает экран смерти (ВЫ ПОГИБЛИ)
+		}
+
+		DisableDash: {
+			Label: Отключить рывок
+			Tooltip: Отключает рывок с кадрами неуязвимости
 		}
 	}
 }

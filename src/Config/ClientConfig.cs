@@ -27,6 +27,13 @@ namespace DarkSouls.Config
         [ReloadRequired]
         public bool DisableOverrideMusic = false;
 
+        [Header("Other")]
+        [DefaultValue(false)]
+        public bool DisableDeathScreen = false;
+
+        [DefaultValue(false)]
+        public bool DisableDash = false;
+
         public static bool GetValueFromJSON(string valueName)
         {
             string path = Path.Combine(Main.SavePath, "ModConfigs", "DarkSouls_ClientConfig.json");

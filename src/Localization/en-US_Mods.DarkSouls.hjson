@@ -51,6 +51,8 @@ ScalingSystem: {
 	FaithDisplayName: Faith
 }
 
+Conditionals.DropsFromNormalEnemiesOnlyConditionDescription: Dropped by hostile enemies that are not bosses and were not spawned using a statue
+
 Keybinds: {
 	"Toggle Dark Souls Stats UI.DisplayName": Open / close window with player stats
 	Dash.DisplayName: Dash
@@ -141,7 +143,11 @@ Configs: {
 
 	ClientConfig: {
 		DisplayName: Client Config
-		Headers.ResourcePack: Resource Pack
+
+		Headers: {
+			ResourcePack: Resource Pack
+			Other: Other
+		}
 
 		DisableOverrideHurtSounds: {
 			Label: Disable Override Hurt Sounds
@@ -175,6 +181,16 @@ Configs: {
 				- Duke Fishron (Music_58) - Ornstein & Smough
 				- Titles (Music_89) - Nameless Song
 				'''
+		}
+
+		DisableDeathScreen: {
+			Label: Disable Death Screen
+			Tooltip: Disables the death screen (YOU DIED)
+		}
+
+		DisableDash: {
+			Label: Disable Dash
+			Tooltip: Disables the dash with invincibility frames
 		}
 	}
 }
