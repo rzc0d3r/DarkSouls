@@ -42,9 +42,6 @@ namespace DarkSouls.Items
 
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
-            if (item.DamageType == DamageClass.Default)
-                return;
-
             DarkSoulsScalingSystem.WeaponParams weaponParams;
             if (!DarkSoulsScalingSystem.AllWeaponsParams.TryGetValue(item.type, out weaponParams))
                 return;

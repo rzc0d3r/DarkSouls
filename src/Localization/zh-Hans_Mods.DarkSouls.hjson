@@ -40,10 +40,21 @@ BloodstainMessage:
 	魂: +{0}
 	人性: +{1}
 	'''
+BloodstainErrorMessage: 血迹超出可接触范围！
+
+ScalingSystem: {
+	ReqParamDisplayName: 所需属性
+	ParamBonusDisplayName: 属性加成
+	StrengthDisplayName: 力气
+	DexterityDisplayName: 敏捷
+	IntelligenceDisplayName: 智力
+	FaithDisplayName: 信仰
+}
 
 Keybinds: {
 	"Toggle Dark Souls Stats UI.DisplayName": 打开/关闭属性窗口
 	Dash.DisplayName: 冲刺
+	"Touch the bloodstain.DisplayName": 触碰血迹
 }
 
 Items: {
@@ -136,9 +147,33 @@ Configs: {
 			Label: 禁用受伤音效
 			Tooltip:
 				'''
-				禁用替换默认的受伤音效（这些音效原本会被《黑暗之魂1》中的音效替代）。
-				更改此设置后，所有已启用的模组将重新加载。
-				您必须随后禁用并重新启用此模组的资源包，更改才能生效！！！
+				关闭将默认受伤音效替换为《黑暗之魂 I》音效的功能。
+
+				更改此设置前，请先关闭资源包，否则会出现错误！！！
+				重新加载后，请启用资源包以应用更改！
+				'''
+		}
+
+		DisableOverrideMusic: {
+			Label: 禁用音乐替换
+			Tooltip:
+				'''
+				关闭将默认音乐替换为来自《黑暗之魂I》（《黑暗之魂：深渊的亚尔特留斯版》原声音乐）曲目的功能。
+
+				更改此设置前，请先关闭资源包，否则会出现错误！！！
+				重新加载后，请启用资源包以应用更改！
+
+				曲目列表：
+				- Boss1 (Music_5) - Taurus Demon
+				- Boss2 (Music_12) - Four Kings
+				- Boss3 (Music_13) - Gravelord Nito
+				- Boss4 (Music_17) - Iron Golem
+				- Boss5 (Music_25) - Chaos Witch Quelaag
+				- 世花 (Music_24) - Kalameet
+				- 月亮领主 (Music_38) - Gwyn, Lord of Cinder
+				- 光之女皇 (Music_57) - Gwynevere, Princess of Sunlight
+				- 渔人公爵 (Music_58) - Ornstein & Smough
+				- 标题 (Music_89) - Nameless Song
 				'''
 		}
 	}

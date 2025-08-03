@@ -181,38 +181,48 @@ namespace DarkSouls
         {
             if (DarkSouls.ToggleDarkSoulsStatsUIKey.JustPressed)
                 ModContent.GetInstance<DarkSoulsStatsUISystem>().ToggleUI();
+            else if (DarkSouls.TouchBloodstainKey.JustPressed)
+            {
+                if (IsBloodstainReachable())
+                    TouchBloodstain();
+                else
+                    Main.NewText(Language.GetTextValue("Mods.DarkSouls.BloodstainErrorMessage"), Color.DarkRed);
+            }
         }
 
         public override void ResetEffects()
         {
             #region Dash Handler
-            customDashKey = DarkSouls.DashKey.GetAssignedKeys().Count > 0 && DarkSouls.DashKey.GetAssignedKeys()[0] != "Double-tap A or D";
-            if (customDashKey)
+            if (Main.myPlayer == Player.whoAmI)
             {
-                if (DarkSouls.DashKey.JustPressed)
+                customDashKey = DarkSouls.DashKey.GetAssignedKeys().Count > 0 && customDashKey && DarkSouls.DashKey.GetAssignedKeys()[0] != "Double-tap A or D";
+                if (customDashKey)
                 {
-                    if (Player.controlDown)
-                        dashDir = dashDown;
-                    else if (Player.controlUp)
-                        dashDir = dashUp;
+                    if (DarkSouls.DashKey.JustPressed)
+                    {
+                        if (Player.controlDown)
+                            dashDir = dashDown;
+                        else if (Player.controlUp)
+                            dashDir = dashUp;
+                        else
+                            dashDir = Player.direction == 1 ? dashRight : dashLeft;
+                    }
                     else
-                        dashDir = Player.direction == 1 ? dashRight : dashLeft;
+                        dashDir = -1;
                 }
                 else
-                    dashDir = -1;
-            }
-            else
-            {
-                if (Player.controlDown && Player.releaseDown && Player.doubleTapCardinalTimer[dashDown] < 15)
-                    dashDir = dashDown;
-                else if (Player.controlUp && Player.releaseUp && Player.doubleTapCardinalTimer[dashUp] < 15)
-                    dashDir = dashUp;
-                else if (Player.controlRight && Player.releaseRight && Player.doubleTapCardinalTimer[dashRight] < 15 && Player.doubleTapCardinalTimer[dashLeft] == 0)
-                    dashDir = dashRight;
-                else if (Player.controlLeft && Player.releaseLeft && Player.doubleTapCardinalTimer[dashLeft] < 15 && Player.doubleTapCardinalTimer[dashRight] == 0)
-                    dashDir = dashLeft;
-                else
-                    dashDir = -1;
+                {
+                    if (Player.controlDown && Player.releaseDown && Player.doubleTapCardinalTimer[dashDown] < 15)
+                        dashDir = dashDown;
+                    else if (Player.controlUp && Player.releaseUp && Player.doubleTapCardinalTimer[dashUp] < 15)
+                        dashDir = dashUp;
+                    else if (Player.controlRight && Player.releaseRight && Player.doubleTapCardinalTimer[dashRight] < 15 && Player.doubleTapCardinalTimer[dashLeft] == 0)
+                        dashDir = dashRight;
+                    else if (Player.controlLeft && Player.releaseLeft && Player.doubleTapCardinalTimer[dashLeft] < 15 && Player.doubleTapCardinalTimer[dashRight] == 0)
+                        dashDir = dashLeft;
+                    else
+                        dashDir = -1;
+                }
             }
             #endregion
             
@@ -372,32 +382,18 @@ namespace DarkSouls
         public override void PostUpdate()
         {
             Player.ConsumedLifeCrystals = Math.Clamp(StatFormulas.GetHPByVitality(dsVitality) / 20, 0, Player.LifeCrystalMax);
+            Player.ConsumedLifeFruit = Math.Clamp((StatFormulas.GetHPByVitality(dsVitality) - 400) / 5, 0, Player.LifeFruitMax);
             Player.ConsumedManaCrystals = Math.Clamp(StatFormulas.GetManaByAttunement(dsAttunement) / 20, 0, Player.ManaCrystalMax);
 
             // Handling click on the location of bloodstain
             if (currentBloodstainProjectile != -1 && Main.mouseRight && Main.mouseRightRelease && Main.netMode != NetmodeID.Server)
             {
-                Projectile proj = Main.projectile[currentBloodstainProjectile];
-
-                if (Vector2.Distance(Player.Center, proj.position) <= 110f)
+                if (IsBloodstainReachable())
                 {
-                    if (proj.active && proj.type == ModContent.ProjectileType<BloodstainProjectile>())
-                    {
-                        Vector2 mouseWorld = Main.MouseWorld;
-                        if (proj.Hitbox.Contains(mouseWorld.ToPoint()))
-                        {
-                            Bloodstain bloodstain = bloodstains.FirstOrDefault(s => s.worldGUID == Main.ActiveWorldFileData.UniqueId.ToString());
-                            if (bloodstain != null) {
-                                Main.NewText(Language.GetText("Mods.DarkSouls.BloodstainMessage").WithFormatArgs(bloodstain.souls, bloodstain.humanity).Value, Color.Cyan);
-                                SoundEngine.PlaySound(DarkSouls.dsNewAreaSound, Player.Center);
-                                proj.Kill();
-                                currentBloodstainProjectile = -1;
-                                dsSouls += bloodstain.souls;
-                                dsHumanity += bloodstain.humanity;
-                                bloodstains.RemoveAll(x => x.worldGUID == Main.ActiveWorldFileData.UniqueId.ToString());
-                            }
-                        }
-                    }
+                    Projectile proj = Main.projectile[currentBloodstainProjectile];
+                    Vector2 mouseWorld = Main.MouseWorld;
+                    if (proj.Hitbox.Contains(mouseWorld.ToPoint()))
+                        TouchBloodstain();
                 }
             }
 
@@ -491,9 +487,10 @@ namespace DarkSouls
 
         public override void ModifyMaxStats(out StatModifier health, out StatModifier mana)
         {
-            // simulation of the use of health and mana crystals, for the correct behavior conditions various events
+            // simulation of the used of health, mana crystals and life fruits, for the correct behavior conditions various events
             int totalHealthBonus = StatFormulas.GetHPByVitality(dsVitality);
             int consumedLifeCrystals = Math.Clamp(totalHealthBonus / 20, 0, Player.LifeCrystalMax);
+            int consumedLifeFruit = Math.Clamp((StatFormulas.GetHPByVitality(dsVitality) - 400) / 5, 0, Player.LifeFruitMax);
             int healthBonus = totalHealthBonus - consumedLifeCrystals * 20;
 
             int totalManaBonus = StatFormulas.GetManaByAttunement(dsAttunement);
@@ -502,6 +499,7 @@ namespace DarkSouls
 
             Player.ConsumedLifeCrystals = consumedLifeCrystals;
             Player.ConsumedManaCrystals = consumedManaCrystals;
+            Player.ConsumedLifeFruit = consumedLifeFruit;
 
             health = StatModifier.Default;
             health.Base = healthBonus;
@@ -518,6 +516,11 @@ namespace DarkSouls
         public override void ModifyHitByProjectile(Projectile proj, ref Player.HurtModifiers modifiers)
         {
             modifiers.FinalDamage *= (float)(1f - StatFormulas.GetDefenseByResistance(dsResistance));
+        }
+
+        public override void ModifyLuck(ref float luck)
+        {
+            luck += Math.Clamp(dsHumanity / 100f, 0f, 0.5f);
         }
 
         public override void OnConsumeMana(Item item, int manaConsumed)
@@ -539,7 +542,7 @@ namespace DarkSouls
                 if (SoundEngine.TryGetActiveSound(lastDamageSoundSlotId, out activeSound))
                     activeSound.Volume -= 0.2f;
                 SoundStyle sound = SoundUtils.GetRandomDamageSound(out lastSoundStyleDamageIndex, Player.Male, lastSoundStyleDamageIndex);
-                lastDamageSoundSlotId = SoundEngine.PlaySound(sound, Player.Center);
+                lastDamageSoundSlotId = SoundEngine.PlaySound(sound);
             }
             damageSoundTimer = 0f;
 
@@ -561,12 +564,12 @@ namespace DarkSouls
                     if (Player.Male)
                     {
                         if (diedFromFall)
-                            SoundEngine.PlaySound(DarkSouls.dsMaleFallinDeadSound, Player.Center);
+                            SoundEngine.PlaySound(DarkSouls.dsMaleFallinDeadSound);
                         else
-                            SoundEngine.PlaySound(DarkSouls.dsMaleDeadSound, Player.Center);
+                            SoundEngine.PlaySound(DarkSouls.dsMaleDeadSound);
                     }
                     else
-                        SoundEngine.PlaySound(DarkSouls.dsFemaleDeadSound, Player.Center);
+                        SoundEngine.PlaySound(DarkSouls.dsFemaleDeadSound);
                 }
 
                 ModContent.GetInstance<DarkSoulsYouDiedUISystem>().ShowUI();
@@ -661,6 +664,42 @@ namespace DarkSouls
                 return true;
             }
             return false;
+        }
+
+        public void TouchBloodstain()
+        {
+            if (currentBloodstainProjectile == -1)
+                return;
+
+            Projectile proj = Main.projectile[currentBloodstainProjectile];
+
+            if (!proj.active || proj.type != ModContent.ProjectileType<BloodstainProjectile>())
+                return;
+
+            Bloodstain bloodstain = bloodstains.FirstOrDefault(s => s.worldGUID == Main.ActiveWorldFileData.UniqueId.ToString());
+            if (bloodstain != null)
+            {
+                Main.NewText(Language.GetText("Mods.DarkSouls.BloodstainMessage").WithFormatArgs(bloodstain.souls, bloodstain.humanity).Value, Color.Cyan);
+                SoundEngine.PlaySound(DarkSouls.dsNewAreaSound);
+                proj.Kill();
+                currentBloodstainProjectile = -1;
+                dsSouls += bloodstain.souls;
+                dsHumanity += bloodstain.humanity;
+                bloodstains.RemoveAll(x => x.worldGUID == Main.ActiveWorldFileData.UniqueId.ToString());
+            }
+        }
+
+        public bool IsBloodstainReachable(float reachDistance = 200f)
+        {
+            if (currentBloodstainProjectile == -1)
+                return false;
+
+            Projectile proj = Main.projectile[currentBloodstainProjectile];
+            if (!proj.active || proj.type != ModContent.ProjectileType<BloodstainProjectile>())
+                return false;
+
+            float distance = Vector2.Distance(Player.Center, proj.Center);
+            return distance <= reachDistance;
         }
         #endregion
     }

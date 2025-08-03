@@ -1,8 +1,6 @@
 Before posting comments like "How do I level up?" or similar, please read the wiki first. I didn’t write it for nothing.
 Wiki link: https://github.com/rzc0d3r/DarkSouls/blob/main
 
-- - - General information - - -
-
 Main Features and Changes:
 1. Character stat leveling system: Vitality, Attunement, Endurance, Strength, Dexterity, Resistance, Intelligence, Faith  
 2. Scaling system (ParamBonus) for all weapons and tools (vanilla Terraria) based on character stats  
@@ -18,6 +16,7 @@ Main Features and Changes:
 12. Ability to customize the mod through the settings menu
 13. Accessories from the Dark Souls game series
 14. Upon death, you lose all your souls and humanity. A bloodstain will appear at the place of death, which you can use to recover everything
+15. Soundtrack from Dark Souls I (Dark Souls with Artorias of the Abyss Edition Original Soundtrack)
 
 ! Attention !
 
@@ -30,8 +29,6 @@ Discord channel: https://discord.gg/yX3VjHwu3B
 
 Перед тем как писать комментарии вроде "Как мне повысить уровень?" и тому подобные — пожалуйста, сначала прочитайте вики. Я писал её не просто так.
 Ссылка на вики: https://github.com/rzc0d3r/DarkSouls/blob/main/README.md
-
-- - - Общая информация - - -
 
 Основные нововведения и изменения:
 1. Система прокачки характеристик персонажа: Жизненная сила, ученость, выносливость, сила, ловкость, сопротивление, интеллект, вера
@@ -48,6 +45,7 @@ Discord channel: https://discord.gg/yX3VjHwu3B
 12. Возможность настроить мод под себя через меню настроек
 13. Аксессуары из серии игр Dark Souls
 14. При смерти вы теряете все души и человечность, на месте смерти будет пятно крови, с помощью которого можно вернуть все назад
+15. Саундтрек из Dark Souls I (Dark Souls with Artorias of the Abyss Edition Original Soundtrack)
 
 ! Внимание !
 
@@ -55,3 +53,32 @@ Discord channel: https://discord.gg/yX3VjHwu3B
 
 Исходный код мода: https://github.com/rzc0d3r/DarkSouls
 Мой discord канал: https://discord.gg/yX3VjHwu3B
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+在你发表评论，比如“我该如何升级？”之类的问题之前，请先阅读维基。我可不是白写的。
+维基链接：https://github.com/rzc0d3r/DarkSouls/blob/main/README.md
+
+主要新增内容与变更：
+1. 角色属性升级系统：生命力、学识、耐力、力量、敏捷、抗性、智力、信仰
+2. 来自原版泰拉瑞亚的所有武器与工具将获得属性加成系统（ParamBonus）
+3. 原版泰拉瑞亚的每一件武器与工具现在都有使用所需的最低属性（ReqParam）
+4. 传奇死亡画面：YOU DIED
+5. 替换了界面音效与玩家受伤音效（适用于男女）
+6. 所有加载界面背景已更换为 From Software 的标志画面
+7. 添加了新的生命值与魔力条样式，并增加了一个耐力条
+8. 最大生命值与魔力值现在通过升级生命力与学识提升。无法再使用生命之心与魔力水晶！
+9. 所有冲刺方式已被替换为内置冲刺能力，包含无敌帧，可通过提升（类似黑魂2的适应性）增加无敌时间
+10. 升级属性需要消耗灵魂，灵魂可通过击杀敌对怪物获得
+11. 支持多人联机
+12. 可通过设置菜单自定义调整模组
+13. 添加了来自《黑暗之魂》系列的饰品
+14. 死亡时会失去所有灵魂与人性，死亡地点会生成血迹，通过它可取回一切
+15. 来自《黑暗之魂I》（《黑暗之魂：深渊的亚尔特留斯版》原声带）的配乐
+
+⚠️ 注意！
+
+要启用所有改动，请启用资源包并在 tModLoader 设置中将其设为最高优先级！
+
+模组源代码与完整维基文档：https://github.com/rzc0d3r/DarkSouls
+我的 Discord 频道：https://discord.gg/yX3VjHwu3B

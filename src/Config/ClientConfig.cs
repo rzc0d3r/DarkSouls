@@ -23,7 +23,11 @@ namespace DarkSouls.Config
         [ReloadRequired]
         public bool DisableOverrideHurtSounds = false;
 
-        public static bool GetDOHSValueFromJSON()
+        [DefaultValue(false)]
+        [ReloadRequired]
+        public bool DisableOverrideMusic = false;
+
+        public static bool GetValueFromJSON(string valueName)
         {
             string path = Path.Combine(Main.SavePath, "ModConfigs", "DarkSouls_ClientConfig.json");
             if (!File.Exists(path))
@@ -33,11 +37,11 @@ namespace DarkSouls.Config
             {
                 string data = File.ReadAllText(path);
                 JObject json = JObject.Parse(data);
-                return json["DisableOverrideHurtSounds"]?.Value<bool>() ?? false;
+                return json[valueName]?.Value<bool>() ?? false;
             }
             catch (Exception ex)
             {
-                ConsoleUtils.WriteLine($"[DarkSouls] Failed to read DOHS value from JSON: {ex}", ConsoleColor.DarkRed);
+                ConsoleUtils.WriteLine($"[DarkSouls] Failed to read value with name \"{valueName}\" from JSON: {ex}", ConsoleColor.DarkRed);
             }
 
             return false;

@@ -2,7 +2,7 @@
 
 A bloodstain with a green glow marks the place of your death.
 
-Touching it (right-clicking near it) will restore your lost souls and humanity.
+Touching it (right-click on it nearby or press the hotkey **Touch the bloodstain**) will restore your lost souls and humanity.
 
 If you die again before reaching the previous bloodstain, the souls and humanity will be lost forever, and a new bloodstain will replace the old one.
 

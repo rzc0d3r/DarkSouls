@@ -30,7 +30,7 @@ namespace DarkSouls.Items.Consumables
         public override bool? UseItem(Player player)
         {
             if (Main.myPlayer == player.whoAmI)
-                soundSlotId = SoundEngine.PlaySound(DarkSouls.dsConsumeSoulSound, player.Center);
+                soundSlotId = SoundEngine.PlaySound(DarkSouls.dsConsumeSoulSound);
             return true;
         }
 

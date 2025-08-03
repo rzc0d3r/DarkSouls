@@ -25,7 +25,7 @@
    Description: Increases stamina regeneration rate by 25%
                 Reduces delay before stamina regeneration by 15%
                 This ancient ring, engraved with a large green flower, is of unknown origin.
-   Dropped by: Giant Tortoise (10%)
+   Dropped by: Giant Tortoise (8.33%)
 </pre>
 
 </details>
@@ -44,7 +44,8 @@
    Description: Use to gain 1 humanity
                 This black sprite is called humanity, but little is known about its true nature.
                 If the soul is the source of all life, then what distinguishes the humanity we hold within ourselves?
-   Dropped by: Any enemy mob (2%). For more details, you can use the Recipe Browser mod
+   Dropped by: Any enemy mob (1%). For more details, you can use the Recipe Browser mod
 </pre>
 
 </details>
+

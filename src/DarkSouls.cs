@@ -20,6 +20,7 @@ namespace DarkSouls
         #region HotKeys
         public static ModKeybind ToggleDarkSoulsStatsUIKey;
         public static ModKeybind DashKey;
+        public static ModKeybind TouchBloodstainKey;
         #endregion
 
         #region Fonts
@@ -44,8 +45,8 @@ namespace DarkSouls
         public static List<SoundStyle> dsMaleDamageSounds;
         public static List<SoundStyle> dsFemaleDamageSounds;
 
-        private static float DSMaleDamageSoundVolume = 0.55f;
-        private static float DSFemaleDamageSoundVolume = 0.5f;
+        private static float DSMaleDamageSoundVolume = 0.45f;
+        private static float DSFemaleDamageSoundVolume = 0.35f;
         #endregion
 
         public enum NetMessageTypes : byte
@@ -61,10 +62,18 @@ namespace DarkSouls
             if (!DarkSoulsResourcePack.IsInstalled)
                 DarkSoulsResourcePack.Install();
 
-            if (ClientConfig.GetDOHSValueFromJSON())
-                DarkSoulsResourcePack.DisableOverrideHurtSound();
+            bool DisableOverrideHurtSounds = ClientConfig.GetValueFromJSON("DisableOverrideHurtSounds");
+            bool DisableOverrideMusic = ClientConfig.GetValueFromJSON("DisableOverrideMusic");
+
+            if (DisableOverrideHurtSounds)
+                DarkSoulsResourcePack.DisableOverrideResources(true);
             else
-                DarkSoulsResourcePack.EnableOverrideHurtSound();
+                DarkSoulsResourcePack.EnableOverrideResources(true);
+
+            if (DisableOverrideMusic)
+                DarkSoulsResourcePack.DisableOverrideResources(false, true);
+            else
+                DarkSoulsResourcePack.EnableOverrideResources(false, true);
 
             DarkSoulsResourcePack.GetInfo();
         }
@@ -76,6 +85,7 @@ namespace DarkSouls
                 // Keybinds
                 ToggleDarkSoulsStatsUIKey = KeybindLoader.RegisterKeybind(this, "Toggle Dark Souls Stats UI", "OemTilde");
                 DashKey = KeybindLoader.RegisterKeybind(this, "Dash", "Double-tap A or D");
+                TouchBloodstainKey = KeybindLoader.RegisterKeybind(this, "Touch the bloodstain", "NumPad1");
 
                 // Fonts
                 OptimusPrincepsFont = ModContent.Request<DynamicSpriteFont>("DarkSouls/Fonts/OptimusPrinceps", AssetRequestMode.ImmediateLoad).Value;

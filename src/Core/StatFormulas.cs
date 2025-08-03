@@ -45,9 +45,9 @@ namespace DarkSouls.Core
         public static int GetInvincibilityFramesByResistance(int resistance)
         {
             int dashDuration = DarkSoulsPlayer.dashDuration;
-            int frames = dashDuration / 2;
-            frames += Math.Max(0, Math.Min(resistance - 1, 31)) / (30 / ((dashDuration - frames) / 2)); // +5
-            frames += Math.Max(0, Math.Min(resistance - 32, 67) / (67 / (dashDuration - frames)));
+            int frames = dashDuration / 2; // 10
+            frames += Math.Min(resistance, 31) * 5 / 31; // 10 + 5 = 15
+            frames += Math.Max(resistance - 31, 0) * 5 / 68; // 10 + 5 + 5 = 20
             return frames;
         }
 
