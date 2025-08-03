@@ -9,15 +9,14 @@ In addition, most weapons and tools scale with your stats, granting bonus damage
 
 ### Scaling Grades
 
-| №  | Scaling Grade | Multiplier   |
-|----|----------------|--------------|
-| 1  | S              | 0.85 (85%)   |
-| 2  | A              | 0.5 (50%)    | 
-| 3  | B              | 0.3 (30%)    | 
-| 4  | C              | 0.2 (20%)    | 
-| 5  | D              | 0.1 (10%)    | 
-| 6  | E              | 0.05 (5%)    | 
-| 7  | -              | 0 (0%)       | 
+|----|------------------|-------------|
+| 1  | S                | 0.85 (85%)  |
+| 2  | A                | 0.65 (65%)  | 
+| 3  | B                | 0.45 (45%)  | 
+| 4  | C                | 0.35 (35%)  | 
+| 5  | D                | 0.25 (25%)  | 
+| 6  | E                | 0.15 (15%)  | 
+| 7  | -                | 0 (0%)      | 
 
 In practice, you don’t need to memorize the exact multipliers — just remember:  
 **The closer the scaling is to S, the more bonus damage you’ll get per stat point.**
